@@ -33,13 +33,15 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnAlunos = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnServicos = new System.Windows.Forms.Button();
             this.btnVendas = new System.Windows.Forms.Button();
-            this.btnRelatorios = new System.Windows.Forms.Button();
+            this.btnRelatorioMensalidades = new System.Windows.Forms.Button();
+            this.dgvDashboard = new System.Windows.Forms.DataGridView();
+            this.btnRelatorioVendas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDashboard)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
@@ -48,28 +50,19 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(305, 175);
+            this.chart1.Location = new System.Drawing.Point(255, 339);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(413, 300);
+            this.chart1.Size = new System.Drawing.Size(940, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Location = new System.Drawing.Point(70, 165);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(120, 37);
-            this.btnDashboard.TabIndex = 2;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            // 
             // btnAlunos
             // 
-            this.btnAlunos.Location = new System.Drawing.Point(70, 223);
+            this.btnAlunos.Location = new System.Drawing.Point(70, 182);
             this.btnAlunos.Name = "btnAlunos";
             this.btnAlunos.Size = new System.Drawing.Size(120, 37);
             this.btnAlunos.TabIndex = 4;
@@ -78,7 +71,7 @@
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(70, 281);
+            this.btnUsuarios.Location = new System.Drawing.Point(70, 240);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(120, 37);
             this.btnUsuarios.TabIndex = 6;
@@ -87,7 +80,7 @@
             // 
             // btnServicos
             // 
-            this.btnServicos.Location = new System.Drawing.Point(70, 339);
+            this.btnServicos.Location = new System.Drawing.Point(70, 298);
             this.btnServicos.Name = "btnServicos";
             this.btnServicos.Size = new System.Drawing.Size(120, 37);
             this.btnServicos.TabIndex = 8;
@@ -96,21 +89,39 @@
             // 
             // btnVendas
             // 
-            this.btnVendas.Location = new System.Drawing.Point(70, 397);
+            this.btnVendas.Location = new System.Drawing.Point(70, 356);
             this.btnVendas.Name = "btnVendas";
             this.btnVendas.Size = new System.Drawing.Size(120, 37);
             this.btnVendas.TabIndex = 10;
             this.btnVendas.Text = "Vendas";
             this.btnVendas.UseVisualStyleBackColor = true;
             // 
-            // btnRelatorios
+            // btnRelatorioMensalidades
             // 
-            this.btnRelatorios.Location = new System.Drawing.Point(70, 455);
-            this.btnRelatorios.Name = "btnRelatorios";
-            this.btnRelatorios.Size = new System.Drawing.Size(120, 37);
-            this.btnRelatorios.TabIndex = 12;
-            this.btnRelatorios.Text = "Relatórios";
-            this.btnRelatorios.UseVisualStyleBackColor = true;
+            this.btnRelatorioMensalidades.Location = new System.Drawing.Point(70, 414);
+            this.btnRelatorioMensalidades.Name = "btnRelatorioMensalidades";
+            this.btnRelatorioMensalidades.Size = new System.Drawing.Size(120, 52);
+            this.btnRelatorioMensalidades.TabIndex = 12;
+            this.btnRelatorioMensalidades.Text = "Relatório de Mensalidades não pagas";
+            this.btnRelatorioMensalidades.UseVisualStyleBackColor = true;
+            // 
+            // dgvDashboard
+            // 
+            this.dgvDashboard.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDashboard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDashboard.Location = new System.Drawing.Point(345, 138);
+            this.dgvDashboard.Name = "dgvDashboard";
+            this.dgvDashboard.Size = new System.Drawing.Size(289, 197);
+            this.dgvDashboard.TabIndex = 13;
+            // 
+            // btnRelatorioVendas
+            // 
+            this.btnRelatorioVendas.Location = new System.Drawing.Point(70, 488);
+            this.btnRelatorioVendas.Name = "btnRelatorioVendas";
+            this.btnRelatorioVendas.Size = new System.Drawing.Size(120, 37);
+            this.btnRelatorioVendas.TabIndex = 14;
+            this.btnRelatorioVendas.Text = "Relatório de Vendas realizadas no mês";
+            this.btnRelatorioVendas.UseVisualStyleBackColor = true;
             // 
             // frmDashboard
             // 
@@ -119,17 +130,19 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnRelatorios);
+            this.Controls.Add(this.btnRelatorioVendas);
+            this.Controls.Add(this.dgvDashboard);
+            this.Controls.Add(this.btnRelatorioMensalidades);
             this.Controls.Add(this.btnVendas);
             this.Controls.Add(this.btnServicos);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.btnAlunos);
-            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.chart1);
             this.DoubleBuffered = true;
             this.Name = "frmDashboard";
             this.Text = "frmDashboard";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDashboard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,11 +150,12 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnAlunos;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnServicos;
         private System.Windows.Forms.Button btnVendas;
-        private System.Windows.Forms.Button btnRelatorios;
+        private System.Windows.Forms.Button btnRelatorioMensalidades;
+        private System.Windows.Forms.DataGridView dgvDashboard;
+        private System.Windows.Forms.Button btnRelatorioVendas;
     }
 }

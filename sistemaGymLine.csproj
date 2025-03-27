@@ -59,11 +59,65 @@
     <Compile Include="frmAlunos.Designer.cs">
       <DependentUpon>frmAlunos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroAlunos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroAlunos.Designer.cs">
+      <DependentUpon>frmCadastroAlunos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroServicos.Designer.cs">
+      <DependentUpon>frmCadastroServicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroUsuarios.Designer.cs">
+      <DependentUpon>frmCadastroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCadastroVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroVendas.Designer.cs">
+      <DependentUpon>frmCadastroVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioMensalidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioMensalidades.Designer.cs">
+      <DependentUpon>frmRelatorioMensalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioVendas.Designer.cs">
+      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicos.Designer.cs">
+      <DependentUpon>frmServicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVendas.Designer.cs">
+      <DependentUpon>frmVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +127,35 @@
     <EmbeddedResource Include="frmAlunos.resx">
       <DependentUpon>frmAlunos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroAlunos.resx">
+      <DependentUpon>frmCadastroAlunos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroServicos.resx">
+      <DependentUpon>frmCadastroServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroUsuarios.resx">
+      <DependentUpon>frmCadastroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroVendas.resx">
+      <DependentUpon>frmCadastroVendas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioMensalidades.resx">
+      <DependentUpon>frmRelatorioMensalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioVendas.resx">
+      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicos.resx">
+      <DependentUpon>frmServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVendas.resx">
+      <DependentUpon>frmVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

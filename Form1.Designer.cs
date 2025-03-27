@@ -70,6 +70,7 @@
             this.txtSenhaLogin.Name = "txtSenhaLogin";
             this.txtSenhaLogin.Size = new System.Drawing.Size(319, 29);
             this.txtSenhaLogin.TabIndex = 3;
+            this.txtSenhaLogin.UseSystemPasswordChar = true;
             this.txtSenhaLogin.TextChanged += new System.EventHandler(this.txtSenhaLogin_TextChanged);
             // 
             // btnLogin
