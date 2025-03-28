@@ -34,7 +34,6 @@
             this.txtSenhaLogin = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtNomeLogin = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -87,6 +86,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtNomeLogin
             // 
@@ -96,15 +96,6 @@
             this.txtNomeLogin.Size = new System.Drawing.Size(319, 29);
             this.txtNomeLogin.TabIndex = 5;
             this.txtNomeLogin.TextChanged += new System.EventHandler(this.txtNomeLogin_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "label3";
             // 
             // label4
             // 
@@ -158,7 +149,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNomeLogin);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtSenhaLogin);
@@ -167,6 +157,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "a";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -181,7 +172,6 @@
         private System.Windows.Forms.TextBox txtSenhaLogin;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtNomeLogin;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;

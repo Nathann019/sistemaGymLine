@@ -63,6 +63,7 @@
             this.btnBuscarUser.TabIndex = 14;
             this.btnBuscarUser.Text = "Buscar";
             this.btnBuscarUser.UseVisualStyleBackColor = false;
+            this.btnBuscarUser.Click += new System.EventHandler(this.btnBuscarUser_Click);
             // 
             // btnExcluirUser
             // 
@@ -110,6 +111,7 @@
             this.btnCadastrarUser.TabIndex = 10;
             this.btnCadastrarUser.Text = "+ Cadastrar";
             this.btnCadastrarUser.UseVisualStyleBackColor = false;
+            this.btnCadastrarUser.Click += new System.EventHandler(this.btnCadastrarUser_Click);
             // 
             // txtBuscarUser
             // 

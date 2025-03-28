@@ -68,6 +68,7 @@
             this.btnAlunos.TabIndex = 4;
             this.btnAlunos.Text = "Alunos";
             this.btnAlunos.UseVisualStyleBackColor = true;
+            this.btnAlunos.Click += new System.EventHandler(this.btnAlunos_Click);
             // 
             // btnUsuarios
             // 
@@ -77,6 +78,7 @@
             this.btnUsuarios.TabIndex = 6;
             this.btnUsuarios.Text = "Usuários";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnServicos
             // 
@@ -86,6 +88,7 @@
             this.btnServicos.TabIndex = 8;
             this.btnServicos.Text = "Serviços";
             this.btnServicos.UseVisualStyleBackColor = true;
+            this.btnServicos.Click += new System.EventHandler(this.btnServicos_Click);
             // 
             // btnVendas
             // 
@@ -95,6 +98,7 @@
             this.btnVendas.TabIndex = 10;
             this.btnVendas.Text = "Vendas";
             this.btnVendas.UseVisualStyleBackColor = true;
+            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // btnRelatorioMensalidades
             // 
@@ -104,6 +108,7 @@
             this.btnRelatorioMensalidades.TabIndex = 12;
             this.btnRelatorioMensalidades.Text = "Relatório de Mensalidades não pagas";
             this.btnRelatorioMensalidades.UseVisualStyleBackColor = true;
+            this.btnRelatorioMensalidades.Click += new System.EventHandler(this.btnRelatorioMensalidades_Click);
             // 
             // dgvDashboard
             // 
@@ -122,6 +127,7 @@
             this.btnRelatorioVendas.TabIndex = 14;
             this.btnRelatorioVendas.Text = "Relatório de Vendas realizadas no mês";
             this.btnRelatorioVendas.UseVisualStyleBackColor = true;
+            this.btnRelatorioVendas.Click += new System.EventHandler(this.btnRelatorioVendas_Click);
             // 
             // frmDashboard
             // 

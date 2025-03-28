@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace sistemaGymLine
 
         private void btnCadastrarUsuario_Click(object sender, EventArgs e)
         {
-
+                    
         }
 
         private void txtBuscarUsuario_TextChanged(object sender, EventArgs e)
@@ -55,6 +56,57 @@ namespace sistemaGymLine
         private void dgvUsuariosCadastrados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnCadastrarServico_Click(object sender, EventArgs e)
+        {
+            frmCadastroServicos frm = new frmCadastroServicos();
+            frm.ShowDialog();
+        }
+
+        private void btnBuscarServico_Click(object sender, EventArgs e)
+        {
+            try
+
+            {
+
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+
+                {
+
+                    cn.Open();
+
+                    var sqlQuery = "select * from servicos where prodServico like '%" + txtBuscarServico.Text + "%'" +
+                    "or idServico like '%" + txtBuscarServico.Text + "%'";
+
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+
+                    {
+
+                        using (DataTable dt = new DataTable())
+
+                        {
+
+                            da.Fill(dt);
+
+                            dgvServicosCadastrados.DataSource = dt;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show("Falha ao tentar conctar\n\n" + ex.Message);
+
+            }
         }
     }
 }

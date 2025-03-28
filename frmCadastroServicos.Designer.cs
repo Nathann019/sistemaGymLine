@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtProd = new System.Windows.Forms.TextBox();
             this.txtObsProd = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnVoltarCadProd
@@ -159,12 +161,33 @@
             this.txtObsProd.Size = new System.Drawing.Size(548, 112);
             this.txtObsProd.TabIndex = 66;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(480, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 18);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "ID - Produto";
+            // 
+            // txtIdProduto
+            // 
+            this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProduto.Location = new System.Drawing.Point(483, 191);
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(84, 29);
+            this.txtIdProduto.TabIndex = 67;
+            // 
             // frmCadastroServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.txtObsProd);
             this.Controls.Add(this.btnVoltarCadProd);
             this.Controls.Add(this.btnCancelarProd);
@@ -196,5 +219,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProd;
         private System.Windows.Forms.TextBox txtObsProd;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtIdProduto;
     }
 }

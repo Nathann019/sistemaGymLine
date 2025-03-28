@@ -43,6 +43,7 @@
             // dgvAlunosCadastrados
             // 
             this.dgvAlunosCadastrados.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAlunosCadastrados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAlunosCadastrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlunosCadastrados.Location = new System.Drawing.Point(339, 292);
             this.dgvAlunosCadastrados.Name = "dgvAlunosCadastrados";
@@ -69,6 +70,7 @@
             this.btnCadastrarAluno.TabIndex = 2;
             this.btnCadastrarAluno.Text = "+ Cadastrar";
             this.btnCadastrarAluno.UseVisualStyleBackColor = false;
+            this.btnCadastrarAluno.Click += new System.EventHandler(this.btnCadastrarAluno_Click);
             // 
             // label1
             // 
@@ -116,6 +118,7 @@
             this.btnBuscarAluno.TabIndex = 6;
             this.btnBuscarAluno.Text = "Buscar";
             this.btnBuscarAluno.UseVisualStyleBackColor = false;
+            this.btnBuscarAluno.Click += new System.EventHandler(this.btnBuscarAluno_Click);
             // 
             // btnVoltarAluno
             // 

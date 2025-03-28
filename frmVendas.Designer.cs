@@ -63,6 +63,7 @@
             this.btnBuscarVenda.TabIndex = 30;
             this.btnBuscarVenda.Text = "Buscar";
             this.btnBuscarVenda.UseVisualStyleBackColor = false;
+            this.btnBuscarVenda.Click += new System.EventHandler(this.btnBuscarVenda_Click);
             // 
             // btnExcluirVenda
             // 
@@ -110,6 +111,7 @@
             this.btnCadastrarVenda.TabIndex = 26;
             this.btnCadastrarVenda.Text = "+ Cadastrar";
             this.btnCadastrarVenda.UseVisualStyleBackColor = false;
+            this.btnCadastrarVenda.Click += new System.EventHandler(this.btnCadastrarVenda_Click);
             // 
             // txtBuscarVenda
             // 

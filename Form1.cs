@@ -26,5 +26,16 @@ namespace sistemaGymLine
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmDashboard frm = new frmDashboard();
+            frm.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

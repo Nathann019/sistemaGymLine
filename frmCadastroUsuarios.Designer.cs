@@ -38,6 +38,8 @@
             this.txtSenhaUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeCompletoUser = new System.Windows.Forms.TextBox();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVoltarCadUser
@@ -134,12 +136,33 @@
             this.txtNomeCompletoUser.Size = new System.Drawing.Size(548, 29);
             this.txtNomeCompletoUser.TabIndex = 24;
             // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdUsuario.Location = new System.Drawing.Point(483, 191);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.Size = new System.Drawing.Size(84, 29);
+            this.txtIdUsuario.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(480, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 18);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "ID - Usuário";
+            // 
             // frmCadastroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIdUsuario);
             this.Controls.Add(this.btnVoltarCadUser);
             this.Controls.Add(this.btnCancelarUser);
             this.Controls.Add(this.btnSalvarUser);
@@ -167,5 +190,7 @@
         private System.Windows.Forms.TextBox txtSenhaUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeCompletoUser;
+        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.Label label2;
     }
 }

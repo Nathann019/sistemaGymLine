@@ -50,6 +50,8 @@
             this.btnSalvarAluno = new System.Windows.Forms.Button();
             this.btnCancelarAluno = new System.Windows.Forms.Button();
             this.btnVoltarCadAluno = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdAluno = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtNomeAluno
@@ -267,12 +269,33 @@
             this.btnVoltarCadAluno.Text = "Voltar";
             this.btnVoltarCadAluno.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(480, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 18);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "ID - Aluno";
+            // 
+            // txtIdAluno
+            // 
+            this.txtIdAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAluno.Location = new System.Drawing.Point(483, 191);
+            this.txtIdAluno.Name = "txtIdAluno";
+            this.txtIdAluno.Size = new System.Drawing.Size(84, 29);
+            this.txtIdAluno.TabIndex = 47;
+            // 
             // frmCadastroAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIdAluno);
             this.Controls.Add(this.btnVoltarCadAluno);
             this.Controls.Add(this.btnCancelarAluno);
             this.Controls.Add(this.btnSalvarAluno);
@@ -324,5 +347,7 @@
         private System.Windows.Forms.Button btnCancelarAluno;
         private System.Windows.Forms.Button btnVoltarCadAluno;
         private System.Windows.Forms.TextBox txtRgAluno;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtIdAluno;
     }
 }
