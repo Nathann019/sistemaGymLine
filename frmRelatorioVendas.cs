@@ -16,5 +16,19 @@ namespace sistemaGymLine
         {
             InitializeComponent();
         }
+
+        private void btnVoltarAluno_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
+
+        private void btnFecharRelVendas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
     }
 }

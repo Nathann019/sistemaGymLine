@@ -60,6 +60,7 @@ namespace sistemaGymLine
 
         private void btnCadastrarServico_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmCadastroServicos frm = new frmCadastroServicos();
             frm.ShowDialog();
         }
@@ -107,6 +108,20 @@ namespace sistemaGymLine
                 MessageBox.Show("Falha ao tentar conctar\n\n" + ex.Message);
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
+
+        private void btnFecharServico_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
         }
     }
 }

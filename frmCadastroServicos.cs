@@ -21,5 +21,19 @@ namespace sistemaGymLine
         {
 
         }
+
+        private void btnVoltarCadProd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmServicos frm = new frmServicos();
+            frm.Show();
+        }
+
+        private void btnFecharCadServicos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
     }
 }

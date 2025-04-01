@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
-            this.btnVoltarUser = new System.Windows.Forms.Button();
             this.btnBuscarUser = new System.Windows.Forms.Button();
             this.btnExcluirUser = new System.Windows.Forms.Button();
             this.btnEditarUser = new System.Windows.Forms.Button();
@@ -37,19 +36,9 @@
             this.btnCadastrarUser = new System.Windows.Forms.Button();
             this.txtBuscarUser = new System.Windows.Forms.TextBox();
             this.dgvUsersCadastrados = new System.Windows.Forms.DataGridView();
+            this.btnFecharUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersCadastrados)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnVoltarUser
-            // 
-            this.btnVoltarUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltarUser.Location = new System.Drawing.Point(12, 632);
-            this.btnVoltarUser.Name = "btnVoltarUser";
-            this.btnVoltarUser.Size = new System.Drawing.Size(75, 37);
-            this.btnVoltarUser.TabIndex = 15;
-            this.btnVoltarUser.Text = "Voltar";
-            this.btnVoltarUser.UseVisualStyleBackColor = true;
             // 
             // btnBuscarUser
             // 
@@ -130,13 +119,27 @@
             this.dgvUsersCadastrados.Size = new System.Drawing.Size(852, 273);
             this.dgvUsersCadastrados.TabIndex = 8;
             // 
+            // btnFecharUser
+            // 
+            this.btnFecharUser.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharUser.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharUser.Name = "btnFecharUser";
+            this.btnFecharUser.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharUser.TabIndex = 16;
+            this.btnFecharUser.Text = "X";
+            this.btnFecharUser.UseVisualStyleBackColor = false;
+            this.btnFecharUser.Click += new System.EventHandler(this.btnFecharUser_Click);
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnVoltarUser);
+            this.Controls.Add(this.btnFecharUser);
             this.Controls.Add(this.btnBuscarUser);
             this.Controls.Add(this.btnExcluirUser);
             this.Controls.Add(this.btnEditarUser);
@@ -145,6 +148,7 @@
             this.Controls.Add(this.txtBuscarUser);
             this.Controls.Add(this.dgvUsersCadastrados);
             this.Name = "frmUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUsuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersCadastrados)).EndInit();
             this.ResumeLayout(false);
@@ -153,8 +157,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVoltarUser;
         private System.Windows.Forms.Button btnBuscarUser;
         private System.Windows.Forms.Button btnExcluirUser;
         private System.Windows.Forms.Button btnEditarUser;
@@ -162,5 +164,6 @@
         private System.Windows.Forms.Button btnCadastrarUser;
         private System.Windows.Forms.TextBox txtBuscarUser;
         private System.Windows.Forms.DataGridView dgvUsersCadastrados;
+        private System.Windows.Forms.Button btnFecharUser;
     }
 }

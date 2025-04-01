@@ -33,8 +33,8 @@
             this.btnImprimirRelVendas = new System.Windows.Forms.Button();
             this.dgvRelVendas = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnVoltarAluno = new System.Windows.Forms.Button();
             this.btnGerarRelVendas = new System.Windows.Forms.Button();
+            this.btnFecharRelVendas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelVendas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,17 +82,6 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Relatório de Vendas realizadas no mês";
             // 
-            // btnVoltarAluno
-            // 
-            this.btnVoltarAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarAluno.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltarAluno.Location = new System.Drawing.Point(12, 632);
-            this.btnVoltarAluno.Name = "btnVoltarAluno";
-            this.btnVoltarAluno.Size = new System.Drawing.Size(75, 37);
-            this.btnVoltarAluno.TabIndex = 45;
-            this.btnVoltarAluno.Text = "Voltar";
-            this.btnVoltarAluno.UseVisualStyleBackColor = true;
-            // 
             // btnGerarRelVendas
             // 
             this.btnGerarRelVendas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -104,19 +93,34 @@
             this.btnGerarRelVendas.Text = "Gerar";
             this.btnGerarRelVendas.UseVisualStyleBackColor = true;
             // 
+            // btnFecharRelVendas
+            // 
+            this.btnFecharRelVendas.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharRelVendas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharRelVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharRelVendas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharRelVendas.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharRelVendas.Name = "btnFecharRelVendas";
+            this.btnFecharRelVendas.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharRelVendas.TabIndex = 73;
+            this.btnFecharRelVendas.Text = "X";
+            this.btnFecharRelVendas.UseVisualStyleBackColor = false;
+            this.btnFecharRelVendas.Click += new System.EventHandler(this.btnFecharRelVendas_Click);
+            // 
             // frmRelatorioVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharRelVendas);
             this.Controls.Add(this.btnGerarRelVendas);
-            this.Controls.Add(this.btnVoltarAluno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalvarRelVendas);
             this.Controls.Add(this.btnImprimirRelVendas);
             this.Controls.Add(this.dgvRelVendas);
             this.Name = "frmRelatorioVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRelatorioVendas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelVendas)).EndInit();
             this.ResumeLayout(false);
@@ -130,7 +134,7 @@
         private System.Windows.Forms.Button btnImprimirRelVendas;
         private System.Windows.Forms.DataGridView dgvRelVendas;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnVoltarAluno;
         private System.Windows.Forms.Button btnGerarRelVendas;
+        private System.Windows.Forms.Button btnFecharRelVendas;
     }
 }

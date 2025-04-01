@@ -21,5 +21,19 @@ namespace sistemaGymLine
         {
 
         }
+
+        private void btnVoltarAluno_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
+
+        private void btnFecharRelMensalidades_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
     }
 }

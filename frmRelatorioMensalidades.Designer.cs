@@ -33,8 +33,8 @@
             this.btnImprimirRelMensalidades = new System.Windows.Forms.Button();
             this.btnSalvarRelMensalidades = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnVoltarAluno = new System.Windows.Forms.Button();
             this.btnGerarRelMensalidades = new System.Windows.Forms.Button();
+            this.btnFecharRelMensalidades = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelMensalidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,17 +82,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Relatório de Mensalidades não pagas";
             // 
-            // btnVoltarAluno
-            // 
-            this.btnVoltarAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarAluno.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltarAluno.Location = new System.Drawing.Point(12, 632);
-            this.btnVoltarAluno.Name = "btnVoltarAluno";
-            this.btnVoltarAluno.Size = new System.Drawing.Size(75, 37);
-            this.btnVoltarAluno.TabIndex = 45;
-            this.btnVoltarAluno.Text = "Voltar";
-            this.btnVoltarAluno.UseVisualStyleBackColor = true;
-            // 
             // btnGerarRelMensalidades
             // 
             this.btnGerarRelMensalidades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -104,19 +93,34 @@
             this.btnGerarRelMensalidades.Text = "Gerar";
             this.btnGerarRelMensalidades.UseVisualStyleBackColor = true;
             // 
+            // btnFecharRelMensalidades
+            // 
+            this.btnFecharRelMensalidades.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharRelMensalidades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharRelMensalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharRelMensalidades.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharRelMensalidades.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharRelMensalidades.Name = "btnFecharRelMensalidades";
+            this.btnFecharRelMensalidades.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharRelMensalidades.TabIndex = 73;
+            this.btnFecharRelMensalidades.Text = "X";
+            this.btnFecharRelMensalidades.UseVisualStyleBackColor = false;
+            this.btnFecharRelMensalidades.Click += new System.EventHandler(this.btnFecharRelMensalidades_Click);
+            // 
             // frmRelatorioMensalidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharRelMensalidades);
             this.Controls.Add(this.btnGerarRelMensalidades);
-            this.Controls.Add(this.btnVoltarAluno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalvarRelMensalidades);
             this.Controls.Add(this.btnImprimirRelMensalidades);
             this.Controls.Add(this.dgvRelMensalidades);
             this.Name = "frmRelatorioMensalidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRelatorioMensalidades";
             this.Load += new System.EventHandler(this.frmRelatorioMensalidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelMensalidades)).EndInit();
@@ -131,7 +135,7 @@
         private System.Windows.Forms.Button btnImprimirRelMensalidades;
         private System.Windows.Forms.Button btnSalvarRelMensalidades;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnVoltarAluno;
         private System.Windows.Forms.Button btnGerarRelMensalidades;
+        private System.Windows.Forms.Button btnFecharRelMensalidades;
     }
 }

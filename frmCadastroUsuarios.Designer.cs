@@ -40,6 +40,7 @@
             this.txtNomeCompletoUser = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnFecharCadUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoltarCadUser
@@ -52,6 +53,7 @@
             this.btnVoltarCadUser.TabIndex = 44;
             this.btnVoltarCadUser.Text = "Voltar";
             this.btnVoltarCadUser.UseVisualStyleBackColor = true;
+            this.btnVoltarCadUser.Click += new System.EventHandler(this.btnVoltarCadUser_Click);
             // 
             // btnCancelarUser
             // 
@@ -155,12 +157,27 @@
             this.label2.TabIndex = 46;
             this.label2.Text = "ID - Usuário";
             // 
+            // btnFecharCadUser
+            // 
+            this.btnFecharCadUser.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharCadUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharCadUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCadUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharCadUser.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharCadUser.Name = "btnFecharCadUser";
+            this.btnFecharCadUser.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharCadUser.TabIndex = 47;
+            this.btnFecharCadUser.Text = "X";
+            this.btnFecharCadUser.UseVisualStyleBackColor = false;
+            this.btnFecharCadUser.Click += new System.EventHandler(this.btnFecharCadUser_Click);
+            // 
             // frmCadastroUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharCadUser);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdUsuario);
             this.Controls.Add(this.btnVoltarCadUser);
@@ -173,6 +190,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeCompletoUser);
             this.Name = "frmCadastroUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroUsuarios";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,5 +210,6 @@
         private System.Windows.Forms.TextBox txtNomeCompletoUser;
         private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFecharCadUser;
     }
 }

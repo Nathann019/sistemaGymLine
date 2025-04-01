@@ -20,6 +20,7 @@ namespace sistemaGymLine
 
         private void btnCadastrarVenda_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmCadastroVendas frm = new frmCadastroVendas();
             frm.ShowDialog();
         }
@@ -68,6 +69,20 @@ namespace sistemaGymLine
                 MessageBox.Show("Falha ao tentar conctar\n\n" + ex.Message);
 
             }
+        }
+
+        private void btnVoltarVenda_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
+
+        private void btnFecharVendas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
         }
     }
 }

@@ -40,6 +40,7 @@
             this.btnRelatorioMensalidades = new System.Windows.Forms.Button();
             this.dgvDashboard = new System.Windows.Forms.DataGridView();
             this.btnRelatorioVendas = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDashboard)).BeginInit();
             this.SuspendLayout();
@@ -129,6 +130,18 @@
             this.btnRelatorioVendas.UseVisualStyleBackColor = true;
             this.btnRelatorioVendas.Click += new System.EventHandler(this.btnRelatorioVendas_Click);
             // 
+            // btnSair
+            // 
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSair.Location = new System.Drawing.Point(12, 632);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 37);
+            this.btnSair.TabIndex = 46;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +149,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnRelatorioVendas);
             this.Controls.Add(this.dgvDashboard);
             this.Controls.Add(this.btnRelatorioMensalidades);
@@ -146,6 +160,7 @@
             this.Controls.Add(this.chart1);
             this.DoubleBuffered = true;
             this.Name = "frmDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDashboard";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDashboard)).EndInit();
@@ -163,5 +178,6 @@
         private System.Windows.Forms.Button btnRelatorioMensalidades;
         private System.Windows.Forms.DataGridView dgvDashboard;
         private System.Windows.Forms.Button btnRelatorioVendas;
+        private System.Windows.Forms.Button btnSair;
     }
 }

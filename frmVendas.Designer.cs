@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
-            this.btnVoltarVenda = new System.Windows.Forms.Button();
             this.btnBuscarVenda = new System.Windows.Forms.Button();
             this.btnExcluirVenda = new System.Windows.Forms.Button();
             this.btnEditarVenda = new System.Windows.Forms.Button();
@@ -37,19 +36,9 @@
             this.btnCadastrarVenda = new System.Windows.Forms.Button();
             this.txtBuscarVenda = new System.Windows.Forms.TextBox();
             this.dgvVendasCadastradas = new System.Windows.Forms.DataGridView();
+            this.btnFecharVendas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendasCadastradas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnVoltarVenda
-            // 
-            this.btnVoltarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarVenda.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltarVenda.Location = new System.Drawing.Point(12, 632);
-            this.btnVoltarVenda.Name = "btnVoltarVenda";
-            this.btnVoltarVenda.Size = new System.Drawing.Size(75, 37);
-            this.btnVoltarVenda.TabIndex = 31;
-            this.btnVoltarVenda.Text = "Voltar";
-            this.btnVoltarVenda.UseVisualStyleBackColor = true;
             // 
             // btnBuscarVenda
             // 
@@ -130,13 +119,27 @@
             this.dgvVendasCadastradas.Size = new System.Drawing.Size(852, 273);
             this.dgvVendasCadastradas.TabIndex = 24;
             // 
+            // btnFecharVendas
+            // 
+            this.btnFecharVendas.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharVendas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharVendas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharVendas.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharVendas.Name = "btnFecharVendas";
+            this.btnFecharVendas.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharVendas.TabIndex = 32;
+            this.btnFecharVendas.Text = "X";
+            this.btnFecharVendas.UseVisualStyleBackColor = false;
+            this.btnFecharVendas.Click += new System.EventHandler(this.btnFecharVendas_Click);
+            // 
             // frmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnVoltarVenda);
+            this.Controls.Add(this.btnFecharVendas);
             this.Controls.Add(this.btnBuscarVenda);
             this.Controls.Add(this.btnExcluirVenda);
             this.Controls.Add(this.btnEditarVenda);
@@ -145,6 +148,7 @@
             this.Controls.Add(this.txtBuscarVenda);
             this.Controls.Add(this.dgvVendasCadastradas);
             this.Name = "frmVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVendas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendasCadastradas)).EndInit();
             this.ResumeLayout(false);
@@ -153,8 +157,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVoltarVenda;
         private System.Windows.Forms.Button btnBuscarVenda;
         private System.Windows.Forms.Button btnExcluirVenda;
         private System.Windows.Forms.Button btnEditarVenda;
@@ -162,5 +164,6 @@
         private System.Windows.Forms.Button btnCadastrarVenda;
         private System.Windows.Forms.TextBox txtBuscarVenda;
         private System.Windows.Forms.DataGridView dgvVendasCadastradas;
+        private System.Windows.Forms.Button btnFecharVendas;
     }
 }

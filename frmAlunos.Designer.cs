@@ -36,7 +36,7 @@
             this.btnEditarAluno = new System.Windows.Forms.Button();
             this.btnExcluirAluno = new System.Windows.Forms.Button();
             this.btnBuscarAluno = new System.Windows.Forms.Button();
-            this.btnVoltarAluno = new System.Windows.Forms.Button();
+            this.btnFecharAluno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunosCadastrados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,16 +120,19 @@
             this.btnBuscarAluno.UseVisualStyleBackColor = false;
             this.btnBuscarAluno.Click += new System.EventHandler(this.btnBuscarAluno_Click);
             // 
-            // btnVoltarAluno
+            // btnFecharAluno
             // 
-            this.btnVoltarAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarAluno.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltarAluno.Location = new System.Drawing.Point(12, 632);
-            this.btnVoltarAluno.Name = "btnVoltarAluno";
-            this.btnVoltarAluno.Size = new System.Drawing.Size(75, 37);
-            this.btnVoltarAluno.TabIndex = 7;
-            this.btnVoltarAluno.Text = "Voltar";
-            this.btnVoltarAluno.UseVisualStyleBackColor = true;
+            this.btnFecharAluno.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharAluno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharAluno.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharAluno.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharAluno.Name = "btnFecharAluno";
+            this.btnFecharAluno.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharAluno.TabIndex = 8;
+            this.btnFecharAluno.Text = "X";
+            this.btnFecharAluno.UseVisualStyleBackColor = false;
+            this.btnFecharAluno.Click += new System.EventHandler(this.btnFecharAluno_Click);
             // 
             // frmAlunos
             // 
@@ -137,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnVoltarAluno);
+            this.Controls.Add(this.btnFecharAluno);
             this.Controls.Add(this.btnBuscarAluno);
             this.Controls.Add(this.btnExcluirAluno);
             this.Controls.Add(this.btnEditarAluno);
@@ -146,6 +149,7 @@
             this.Controls.Add(this.txtBuscarAluno);
             this.Controls.Add(this.dgvAlunosCadastrados);
             this.Name = "frmAlunos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlunosCadastrados)).EndInit();
             this.ResumeLayout(false);
@@ -162,6 +166,6 @@
         private System.Windows.Forms.Button btnEditarAluno;
         private System.Windows.Forms.Button btnExcluirAluno;
         private System.Windows.Forms.Button btnBuscarAluno;
-        private System.Windows.Forms.Button btnVoltarAluno;
+        private System.Windows.Forms.Button btnFecharAluno;
     }
 }

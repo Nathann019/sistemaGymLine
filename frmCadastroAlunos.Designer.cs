@@ -52,6 +52,7 @@
             this.btnVoltarCadAluno = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdAluno = new System.Windows.Forms.TextBox();
+            this.btnFecharCadAluno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNomeAluno
@@ -244,6 +245,7 @@
             this.btnSalvarAluno.TabIndex = 21;
             this.btnSalvarAluno.Text = "Salvar";
             this.btnSalvarAluno.UseVisualStyleBackColor = false;
+            this.btnSalvarAluno.Click += new System.EventHandler(this.btnSalvarAluno_Click);
             // 
             // btnCancelarAluno
             // 
@@ -268,6 +270,7 @@
             this.btnVoltarCadAluno.TabIndex = 23;
             this.btnVoltarCadAluno.Text = "Voltar";
             this.btnVoltarCadAluno.UseVisualStyleBackColor = true;
+            this.btnVoltarCadAluno.Click += new System.EventHandler(this.btnVoltarCadAluno_Click);
             // 
             // label2
             // 
@@ -285,8 +288,23 @@
             this.txtIdAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdAluno.Location = new System.Drawing.Point(483, 191);
             this.txtIdAluno.Name = "txtIdAluno";
+            this.txtIdAluno.ReadOnly = true;
             this.txtIdAluno.Size = new System.Drawing.Size(84, 29);
             this.txtIdAluno.TabIndex = 47;
+            // 
+            // btnFecharCadAluno
+            // 
+            this.btnFecharCadAluno.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharCadAluno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharCadAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCadAluno.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharCadAluno.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharCadAluno.Name = "btnFecharCadAluno";
+            this.btnFecharCadAluno.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharCadAluno.TabIndex = 49;
+            this.btnFecharCadAluno.Text = "X";
+            this.btnFecharCadAluno.UseVisualStyleBackColor = false;
+            this.btnFecharCadAluno.Click += new System.EventHandler(this.btnFecharCadAluno_Click);
             // 
             // frmCadastroAlunos
             // 
@@ -294,6 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharCadAluno);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdAluno);
             this.Controls.Add(this.btnVoltarCadAluno);
@@ -318,6 +337,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNomeAluno);
             this.Name = "frmCadastroAlunos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroAlunos";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -349,5 +369,6 @@
         private System.Windows.Forms.TextBox txtRgAluno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdAluno;
+        private System.Windows.Forms.Button btnFecharCadAluno;
     }
 }

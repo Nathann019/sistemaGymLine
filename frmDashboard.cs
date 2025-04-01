@@ -24,38 +24,51 @@ namespace sistemaGymLine
 
         private void btnAlunos_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmAlunos frm = new frmAlunos();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmUsuarios frm = new frmUsuarios();
             frm.ShowDialog();
         }
 
         private void btnServicos_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmServicos frm = new frmServicos();
             frm.ShowDialog();
         }
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmVendas frm = new frmVendas();
             frm.ShowDialog();
         }
 
         private void btnRelatorioMensalidades_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmRelatorioMensalidades frm = new frmRelatorioMensalidades();
             frm.ShowDialog();
         }
 
         private void btnRelatorioVendas_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmRelatorioVendas frm = new frmRelatorioVendas();
             frm.ShowDialog();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 frm = new Form1();
+            frm.Show();
         }
     }
 }

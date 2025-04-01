@@ -46,6 +46,7 @@
             this.dtpDataPagVenda = new System.Windows.Forms.DateTimePicker();
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnFecharCadVenda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoltarCadVenda
@@ -58,6 +59,7 @@
             this.btnVoltarCadVenda.TabIndex = 65;
             this.btnVoltarCadVenda.Text = "Voltar";
             this.btnVoltarCadVenda.UseVisualStyleBackColor = true;
+            this.btnVoltarCadVenda.Click += new System.EventHandler(this.btnVoltarCadVenda_Click);
             // 
             // btnCancelarVenda
             // 
@@ -222,12 +224,27 @@
             this.label2.TabIndex = 71;
             this.label2.Text = "ID - Venda";
             // 
+            // btnFecharCadVenda
+            // 
+            this.btnFecharCadVenda.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharCadVenda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharCadVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCadVenda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharCadVenda.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharCadVenda.Name = "btnFecharCadVenda";
+            this.btnFecharCadVenda.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharCadVenda.TabIndex = 72;
+            this.btnFecharCadVenda.Text = "X";
+            this.btnFecharCadVenda.UseVisualStyleBackColor = false;
+            this.btnFecharCadVenda.Click += new System.EventHandler(this.btnFecharCadVenda_Click);
+            // 
             // frmCadastroVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharCadVenda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.dtpDataPagVenda);
@@ -246,6 +263,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Name = "frmCadastroVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroVendas";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,5 +289,6 @@
         private System.Windows.Forms.DateTimePicker dtpDataPagVenda;
         private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFecharCadVenda;
     }
 }

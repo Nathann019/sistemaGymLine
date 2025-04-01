@@ -16,5 +16,19 @@ namespace sistemaGymLine
         {
             InitializeComponent();
         }
+
+        private void btnVoltarCadUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmUsuarios frm = new frmUsuarios();
+            frm.Show();
+        }
+
+        private void btnFecharCadUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.txtObsProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProduto = new System.Windows.Forms.TextBox();
+            this.btnFecharCadServicos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoltarCadProd
@@ -54,6 +55,7 @@
             this.btnVoltarCadProd.TabIndex = 65;
             this.btnVoltarCadProd.Text = "Voltar";
             this.btnVoltarCadProd.UseVisualStyleBackColor = true;
+            this.btnVoltarCadProd.Click += new System.EventHandler(this.btnVoltarCadProd_Click);
             // 
             // btnCancelarProd
             // 
@@ -180,12 +182,27 @@
             this.txtIdProduto.Size = new System.Drawing.Size(84, 29);
             this.txtIdProduto.TabIndex = 67;
             // 
+            // btnFecharCadServicos
+            // 
+            this.btnFecharCadServicos.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharCadServicos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharCadServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCadServicos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharCadServicos.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharCadServicos.Name = "btnFecharCadServicos";
+            this.btnFecharCadServicos.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharCadServicos.TabIndex = 69;
+            this.btnFecharCadServicos.Text = "X";
+            this.btnFecharCadServicos.UseVisualStyleBackColor = false;
+            this.btnFecharCadServicos.Click += new System.EventHandler(this.btnFecharCadServicos_Click);
+            // 
             // frmCadastroServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharCadServicos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdProduto);
             this.Controls.Add(this.txtObsProd);
@@ -200,6 +217,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtProd);
             this.Name = "frmCadastroServicos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroServicos";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,5 +239,6 @@
         private System.Windows.Forms.TextBox txtObsProd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdProduto;
+        private System.Windows.Forms.Button btnFecharCadServicos;
     }
 }

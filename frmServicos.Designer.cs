@@ -36,7 +36,7 @@
             this.dgvServicosCadastrados = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFecharServico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicosCadastrados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,16 +120,19 @@
             this.button2.Text = "Excluir";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnFecharServico
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(12, 632);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 37);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "Voltar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFecharServico.BackColor = System.Drawing.Color.IndianRed;
+            this.btnFecharServico.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharServico.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnFecharServico.Location = new System.Drawing.Point(1215, 12);
+            this.btnFecharServico.Name = "btnFecharServico";
+            this.btnFecharServico.Size = new System.Drawing.Size(37, 28);
+            this.btnFecharServico.TabIndex = 31;
+            this.btnFecharServico.Text = "X";
+            this.btnFecharServico.UseVisualStyleBackColor = false;
+            this.btnFecharServico.Click += new System.EventHandler(this.btnFecharServico_Click);
             // 
             // frmServicos
             // 
@@ -137,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnFecharServico);
             this.Controls.Add(this.btnBuscarServico);
             this.Controls.Add(this.txtBuscarServico);
             this.Controls.Add(this.btnCadastrarServico);
@@ -144,8 +148,8 @@
             this.Controls.Add(this.dgvServicosCadastrados);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
             this.Name = "frmServicos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmServicos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicosCadastrados)).EndInit();
             this.ResumeLayout(false);
@@ -161,6 +165,6 @@
         private System.Windows.Forms.DataGridView dgvServicosCadastrados;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFecharServico;
     }
 }

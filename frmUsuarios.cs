@@ -20,6 +20,7 @@ namespace sistemaGymLine
 
         private void btnCadastrarUser_Click(object sender, EventArgs e)
         {
+            this.Hide();
             frmCadastroUsuarios frm = new frmCadastroUsuarios();
             frm.ShowDialog();
         }
@@ -67,6 +68,20 @@ namespace sistemaGymLine
                 MessageBox.Show("Falha ao tentar conctar\n\n" + ex.Message);
 
             }
+        }
+
+        private void btnVoltarUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
+        }
+
+        private void btnFecharUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
+            frm.Show();
         }
     }
 }
