@@ -36,8 +36,10 @@ namespace sistemaGymLine
 
                     cn.Open();
 
-                    var sqlQuery = "select a.idAluno, a.nomeAluno, a.rgAluno, a.cpfAluno from alunos a join vendas v on a.idAluno = v.idAluno like '%" + txtBuscarVenda.Text + "%'" +
-                                   "or u.idUsuario, u.nomeCompUsuario, u.nomeUsuario from usuarios u join vendas v on u.idUsuario = v.idUsuario like '%" + txtBuscarVenda.Text + "%'";
+                    var sqlQuery = "select * from vendas where idVenda like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idAluno like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idUsuario like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idServico like '%" + txtBuscarVenda.Text + "%'";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
 
