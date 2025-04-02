@@ -196,6 +196,9 @@
             // 
             this.cmbSexoAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSexoAluno.FormattingEnabled = true;
+            this.cmbSexoAluno.Items.AddRange(new object[] {
+            "Masculino",
+            "Feminino "});
             this.cmbSexoAluno.Location = new System.Drawing.Point(901, 244);
             this.cmbSexoAluno.Name = "cmbSexoAluno";
             this.cmbSexoAluno.Size = new System.Drawing.Size(130, 28);

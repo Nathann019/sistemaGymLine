@@ -30,5 +30,10 @@ namespace sistemaGymLine
             frmDashboard frm = new frmDashboard();
             frm.Show();
         }
+
+        private void btnSalvarVenda_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

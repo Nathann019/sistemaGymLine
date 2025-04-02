@@ -86,6 +86,7 @@
             this.btnSalvarVenda.TabIndex = 63;
             this.btnSalvarVenda.Text = "Salvar";
             this.btnSalvarVenda.UseVisualStyleBackColor = false;
+            this.btnSalvarVenda.Click += new System.EventHandler(this.btnSalvarVenda_Click);
             // 
             // label9
             // 

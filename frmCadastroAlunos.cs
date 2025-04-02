@@ -35,12 +35,16 @@ namespace sistemaGymLine
 
         private void btnSalvarAluno_Click(object sender, EventArgs e)
         {
+
+            DateTime dtDataNascAluno = dtpDataNascAluno.Value;
+            string sexoAluno = cmbSexoAluno.SelectedItem.ToString();
+
             try
             {
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sql = "INSERT INTO alunos (nomeAluno, enderecoAluno, telAluno, rgAluno, cpfAluno, idadeAluno, obsAluno) VALUES (@nome, @endereco, @telefone, @rg, @cpf, @idade, @obs)";
+                    var sql = "INSERT INTO alunos (nomeAluno, enderecoAluno, telAluno, rgAluno, cpfAluno, idadeAluno, sexoAluno, dataNascAluno, obsAluno) VALUES (@nome, @endereco, @telefone, @rg, @cpf, @idade, @sexo, @dataNasc @obs)";
                     using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
                         cmd.Parameters.AddWithValue("@nome", txtNomeAluno.Text);
@@ -49,6 +53,8 @@ namespace sistemaGymLine
                         cmd.Parameters.AddWithValue("@rg", txtRgAluno.Text);
                         cmd.Parameters.AddWithValue("@cpf", txtCpfAluno.Text);
                         cmd.Parameters.AddWithValue("@idade", txtIdadeAluno.Text);
+                        cmd.Parameters.AddWithValue("@dataNasc", dtDataNascAluno);
+                        cmd.Parameters.AddWithValue("@sexo", sexoAluno);
                         cmd.Parameters.AddWithValue("@obs", txtObsAluno.Text);
 
                         cmd.ExecuteNonQuery();
