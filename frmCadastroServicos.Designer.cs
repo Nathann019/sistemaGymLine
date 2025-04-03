@@ -32,8 +32,6 @@
             this.btnVoltarCadProd = new System.Windows.Forms.Button();
             this.btnCancelarProd = new System.Windows.Forms.Button();
             this.btnSalvarProd = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpDataVencProd = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.txtValorProd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -82,27 +80,7 @@
             this.btnSalvarProd.TabIndex = 63;
             this.btnSalvarProd.Text = "Salvar";
             this.btnSalvarProd.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(480, 276);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 18);
-            this.label10.TabIndex = 62;
-            this.label10.Text = "Data de Vencimento";
-            // 
-            // dtpDataVencProd
-            // 
-            this.dtpDataVencProd.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
-            this.dtpDataVencProd.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
-            this.dtpDataVencProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataVencProd.Location = new System.Drawing.Point(483, 296);
-            this.dtpDataVencProd.Name = "dtpDataVencProd";
-            this.dtpDataVencProd.Size = new System.Drawing.Size(167, 29);
-            this.dtpDataVencProd.TabIndex = 61;
+            this.btnSalvarProd.Click += new System.EventHandler(this.btnSalvarProd_Click);
             // 
             // label8
             // 
@@ -129,7 +107,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(480, 327);
+            this.label3.Location = new System.Drawing.Point(480, 275);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 18);
             this.label3.TabIndex = 48;
@@ -157,7 +135,7 @@
             // txtObsProd
             // 
             this.txtObsProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObsProd.Location = new System.Drawing.Point(483, 348);
+            this.txtObsProd.Location = new System.Drawing.Point(483, 296);
             this.txtObsProd.Multiline = true;
             this.txtObsProd.Name = "txtObsProd";
             this.txtObsProd.Size = new System.Drawing.Size(548, 112);
@@ -179,6 +157,7 @@
             this.txtIdProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProduto.Location = new System.Drawing.Point(483, 191);
             this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.ReadOnly = true;
             this.txtIdProduto.Size = new System.Drawing.Size(84, 29);
             this.txtIdProduto.TabIndex = 67;
             // 
@@ -205,17 +184,15 @@
             this.Controls.Add(this.btnFecharCadServicos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdProduto);
-            this.Controls.Add(this.txtObsProd);
             this.Controls.Add(this.btnVoltarCadProd);
             this.Controls.Add(this.btnCancelarProd);
             this.Controls.Add(this.btnSalvarProd);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.dtpDataVencProd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtValorProd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtProd);
+            this.Controls.Add(this.txtObsProd);
             this.Name = "frmCadastroServicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroServicos";
@@ -229,8 +206,6 @@
         private System.Windows.Forms.Button btnVoltarCadProd;
         private System.Windows.Forms.Button btnCancelarProd;
         private System.Windows.Forms.Button btnSalvarProd;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtpDataVencProd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtValorProd;
         private System.Windows.Forms.Label label3;

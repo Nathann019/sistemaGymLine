@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,35 @@ namespace sistemaGymLine
             this.Hide();
             frmDashboard frm = new frmDashboard();
             frm.Show();
+        }
+
+        private void btnSalvarProd_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sql = "INSERT INTO servicos (prodServico, valorServico, obsServico) VALUES (@produto, @valor, @obs)";
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@produto", txtProd.Text);
+                        cmd.Parameters.AddWithValue("@valor", txtValorProd.Text);
+                        cmd.Parameters.AddWithValue("@obs", txtObsProd.Text);
+                        
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Salvo com sucesso");
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dados não Salvos.\n\n" + ex.Message);
+            }
         }
     }
 }

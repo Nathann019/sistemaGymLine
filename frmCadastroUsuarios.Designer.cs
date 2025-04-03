@@ -80,6 +80,7 @@
             this.btnSalvarUser.TabIndex = 42;
             this.btnSalvarUser.Text = "Salvar";
             this.btnSalvarUser.UseVisualStyleBackColor = false;
+            this.btnSalvarUser.Click += new System.EventHandler(this.btnSalvarUser_Click);
             // 
             // label7
             // 
@@ -118,6 +119,7 @@
             this.txtSenhaUser.Name = "txtSenhaUser";
             this.txtSenhaUser.Size = new System.Drawing.Size(270, 29);
             this.txtSenhaUser.TabIndex = 30;
+            this.txtSenhaUser.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -143,6 +145,7 @@
             this.txtIdUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdUsuario.Location = new System.Drawing.Point(483, 191);
             this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.ReadOnly = true;
             this.txtIdUsuario.Size = new System.Drawing.Size(84, 29);
             this.txtIdUsuario.TabIndex = 45;
             // 

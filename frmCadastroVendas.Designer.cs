@@ -36,7 +36,6 @@
             this.cmbProdVenda = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtCpfAlunoVenda = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +46,11 @@
             this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFecharCadVenda = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbVendedorVenda = new System.Windows.Forms.ComboBox();
+            this.cmbIdAluno = new System.Windows.Forms.ComboBox();
+            this.dtpDataVencVenda = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVoltarCadVenda
@@ -93,7 +97,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(926, 273);
+            this.label9.Location = new System.Drawing.Point(818, 327);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 18);
             this.label9.TabIndex = 60;
@@ -124,19 +128,11 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(579, 221);
+            this.label6.Location = new System.Drawing.Point(818, 221);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 18);
+            this.label6.Size = new System.Drawing.Size(72, 18);
             this.label6.TabIndex = 54;
-            this.label6.Text = "CPF - Aluno";
-            // 
-            // txtCpfAlunoVenda
-            // 
-            this.txtCpfAlunoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpfAlunoVenda.Location = new System.Drawing.Point(582, 242);
-            this.txtCpfAlunoVenda.Name = "txtCpfAlunoVenda";
-            this.txtCpfAlunoVenda.Size = new System.Drawing.Size(449, 29);
-            this.txtCpfAlunoVenda.TabIndex = 53;
+            this.label6.Text = "ID - Aluno";
             // 
             // label5
             // 
@@ -154,7 +150,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(818, 326);
+            this.label4.Location = new System.Drawing.Point(480, 380);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 18);
             this.label4.TabIndex = 50;
@@ -174,9 +170,9 @@
             // txtTrocoVenda
             // 
             this.txtTrocoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTrocoVenda.Location = new System.Drawing.Point(929, 294);
+            this.txtTrocoVenda.Location = new System.Drawing.Point(821, 348);
             this.txtTrocoVenda.Name = "txtTrocoVenda";
-            this.txtTrocoVenda.Size = new System.Drawing.Size(102, 29);
+            this.txtTrocoVenda.Size = new System.Drawing.Size(210, 29);
             this.txtTrocoVenda.TabIndex = 66;
             // 
             // txtValorVenda
@@ -184,13 +180,18 @@
             this.txtValorVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorVenda.Location = new System.Drawing.Point(821, 294);
             this.txtValorVenda.Name = "txtValorVenda";
-            this.txtValorVenda.Size = new System.Drawing.Size(102, 29);
+            this.txtValorVenda.Size = new System.Drawing.Size(210, 29);
             this.txtValorVenda.TabIndex = 67;
             // 
             // cmbFormaPagVenda
             // 
             this.cmbFormaPagVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFormaPagVenda.FormattingEnabled = true;
+            this.cmbFormaPagVenda.Items.AddRange(new object[] {
+            "Crédito",
+            "Débito",
+            "Pix",
+            "Dinheiro"});
             this.cmbFormaPagVenda.Location = new System.Drawing.Point(483, 348);
             this.cmbFormaPagVenda.Name = "cmbFormaPagVenda";
             this.cmbFormaPagVenda.Size = new System.Drawing.Size(332, 28);
@@ -201,16 +202,17 @@
             this.dtpDataPagVenda.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtpDataPagVenda.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
             this.dtpDataPagVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataPagVenda.Location = new System.Drawing.Point(821, 347);
+            this.dtpDataPagVenda.Location = new System.Drawing.Point(483, 401);
             this.dtpDataPagVenda.Name = "dtpDataPagVenda";
-            this.dtpDataPagVenda.Size = new System.Drawing.Size(210, 29);
+            this.dtpDataPagVenda.Size = new System.Drawing.Size(272, 29);
             this.dtpDataPagVenda.TabIndex = 69;
             // 
             // txtIdVenda
             // 
             this.txtIdVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVenda.Location = new System.Drawing.Point(483, 242);
+            this.txtIdVenda.Location = new System.Drawing.Point(483, 189);
             this.txtIdVenda.Name = "txtIdVenda";
+            this.txtIdVenda.ReadOnly = true;
             this.txtIdVenda.Size = new System.Drawing.Size(93, 29);
             this.txtIdVenda.TabIndex = 70;
             // 
@@ -219,7 +221,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(480, 221);
+            this.label2.Location = new System.Drawing.Point(480, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 18);
             this.label2.TabIndex = 71;
@@ -239,12 +241,67 @@
             this.btnFecharCadVenda.UseVisualStyleBackColor = false;
             this.btnFecharCadVenda.Click += new System.EventHandler(this.btnFecharCadVenda_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(480, 221);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 18);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "Vendedor";
+            // 
+            // cmbVendedorVenda
+            // 
+            this.cmbVendedorVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbVendedorVenda.FormattingEnabled = true;
+            this.cmbVendedorVenda.Location = new System.Drawing.Point(483, 242);
+            this.cmbVendedorVenda.Name = "cmbVendedorVenda";
+            this.cmbVendedorVenda.Size = new System.Drawing.Size(332, 28);
+            this.cmbVendedorVenda.TabIndex = 75;
+            // 
+            // cmbIdAluno
+            // 
+            this.cmbIdAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbIdAluno.FormattingEnabled = true;
+            this.cmbIdAluno.Location = new System.Drawing.Point(821, 242);
+            this.cmbIdAluno.Name = "cmbIdAluno";
+            this.cmbIdAluno.Size = new System.Drawing.Size(210, 28);
+            this.cmbIdAluno.TabIndex = 76;
+            // 
+            // dtpDataVencVenda
+            // 
+            this.dtpDataVencVenda.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.dtpDataVencVenda.CalendarTitleForeColor = System.Drawing.SystemColors.ControlText;
+            this.dtpDataVencVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataVencVenda.Location = new System.Drawing.Point(759, 401);
+            this.dtpDataVencVenda.Name = "dtpDataVencVenda";
+            this.dtpDataVencVenda.Size = new System.Drawing.Size(272, 29);
+            this.dtpDataVencVenda.TabIndex = 79;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(756, 380);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(141, 18);
+            this.label7.TabIndex = 78;
+            this.label7.Text = "Data de Vencimento";
+            // 
             // frmCadastroVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.dtpDataVencVenda);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cmbIdAluno);
+            this.Controls.Add(this.cmbVendedorVenda);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnFecharCadVenda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdVenda);
@@ -259,7 +316,6 @@
             this.Controls.Add(this.cmbProdVenda);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtCpfAlunoVenda);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -280,7 +336,6 @@
         private System.Windows.Forms.ComboBox cmbProdVenda;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCpfAlunoVenda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
@@ -291,5 +346,10 @@
         private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnFecharCadVenda;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbVendedorVenda;
+        private System.Windows.Forms.ComboBox cmbIdAluno;
+        private System.Windows.Forms.DateTimePicker dtpDataVencVenda;
+        private System.Windows.Forms.Label label7;
     }
 }
