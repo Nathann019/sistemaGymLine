@@ -94,6 +94,7 @@
             this.btnEditarAluno.TabIndex = 4;
             this.btnEditarAluno.Text = "Editar";
             this.btnEditarAluno.UseVisualStyleBackColor = true;
+            this.btnEditarAluno.Click += new System.EventHandler(this.btnEditarAluno_Click);
             // 
             // btnExcluirAluno
             // 

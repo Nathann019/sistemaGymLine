@@ -67,6 +67,7 @@
             this.btnCancelarUser.TabIndex = 43;
             this.btnCancelarUser.Text = "Cancelar";
             this.btnCancelarUser.UseVisualStyleBackColor = false;
+            this.btnCancelarUser.Click += new System.EventHandler(this.btnCancelarUser_Click);
             // 
             // btnSalvarUser
             // 

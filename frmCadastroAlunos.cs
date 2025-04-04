@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace sistemaGymLine
 {
@@ -83,6 +84,45 @@ namespace sistemaGymLine
             this.Hide();
             frmDashboard frm = new frmDashboard();
             frm.Show();
+        }
+
+        public static class FormUtils
+        {
+           
+            public static void LimparCampos(Control container)
+            {
+                
+                foreach (Control control in container.Controls)
+                {
+                    
+                    if (control is System.Windows.Forms.TextBox)
+                    {
+                        ((System.Windows.Forms.TextBox)control).Clear();
+                    }
+                    
+                    else if (control is System.Windows.Forms.ComboBox)
+                    {
+                        ((System.Windows.Forms.ComboBox)control).SelectedIndex = -1; 
+                    }
+                   
+                    if (control.HasChildren)
+                    {
+                        LimparCampos(control);
+                    }
+                }
+            }
+        }
+
+        private void frmCadastroAlunos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarAluno_Click(object sender, EventArgs e)
+        {
+            
+                FormUtils.LimparCampos(this);
+            
         }
     }
 }

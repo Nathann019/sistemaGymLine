@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static sistemaGymLine.frmCadastroAlunos;
 
 namespace sistemaGymLine
 {
-    public partial class frmCadastroVendas: Form
+    public partial class frmCadastroVendas : Form
     {
 
         public class ComboboxItem
@@ -109,29 +110,43 @@ namespace sistemaGymLine
             DateTime dataPagVenda = dtpDataPagVenda.Value;
             DateTime dataVencVenda = dtpDataVencVenda.Value;
 
-            try
+            // Verifica se o valorVenda não está vazio ou com o texto "NULO"
+            decimal valorVenda = 0;
+            if (txtValorVenda.Text != "NULO" && decimal.TryParse(txtValorVenda.Text, out valorVenda))
             {
-                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                try
                 {
-                    cn.Open();
-                    var sql = "INSERT INTO vendas (valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@valor, @dataVenda, @dataVencProd, @troco)";
-                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    using (SqlConnection cn = new SqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("@valor", txtValorVenda.Text);
-                        cmd.Parameters.AddWithValue("@dataVenda", dataPagVenda);
-                        cmd.Parameters.AddWithValue("@dataVencProd", dataVencVenda);
-                        cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
+                        cn.Open();
+                        var sql = "INSERT INTO vendas (valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@valor, @dataVenda, @dataVencProd, @troco)";
+                        using (SqlCommand cmd = new SqlCommand(sql, cn))
+                        {
+                            cmd.Parameters.AddWithValue("@valor", valorVenda);  // Usa o valorVenda calculado ou vindo do texto
+                            cmd.Parameters.AddWithValue("@dataVenda", dataPagVenda);
+                            cmd.Parameters.AddWithValue("@dataVencProd", dataVencVenda);
+                            cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
 
-                        cmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Salvo com sucesso");
+                            MessageBox.Show("Salvo com sucesso");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Dados não Salvos.\n\n" + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Dados não Salvos.\n\n" + ex.Message);
+                MessageBox.Show("Por favor, verifique o valor do produto.");
             }
+        }
+
+        private void btnCancelarVenda_Click(object sender, EventArgs e)
+        {
+            FormUtils.LimparCampos(this);
         }
     }
 }

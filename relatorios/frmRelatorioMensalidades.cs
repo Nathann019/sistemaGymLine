@@ -36,5 +36,10 @@ namespace sistemaGymLine
             frmDashboard frm = new frmDashboard();
             frm.Show();
         }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

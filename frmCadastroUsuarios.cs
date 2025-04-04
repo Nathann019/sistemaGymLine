@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static sistemaGymLine.frmCadastroAlunos;
 
 namespace sistemaGymLine
 {
@@ -58,6 +59,11 @@ namespace sistemaGymLine
             {
                 MessageBox.Show("Dados não Salvos.\n\n" + ex.Message);
             }
+        }
+
+        private void btnCancelarUser_Click(object sender, EventArgs e)
+        {
+            FormUtils.LimparCampos(this);
         }
     }
 }

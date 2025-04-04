@@ -48,11 +48,11 @@
             this.dtpDataNascAluno = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalvarAluno = new System.Windows.Forms.Button();
-            this.btnCancelarAluno = new System.Windows.Forms.Button();
             this.btnVoltarCadAluno = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdAluno = new System.Windows.Forms.TextBox();
             this.btnFecharCadAluno = new System.Windows.Forms.Button();
+            this.btnCancelarAluno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNomeAluno
@@ -250,19 +250,6 @@
             this.btnSalvarAluno.UseVisualStyleBackColor = false;
             this.btnSalvarAluno.Click += new System.EventHandler(this.btnSalvarAluno_Click);
             // 
-            // btnCancelarAluno
-            // 
-            this.btnCancelarAluno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCancelarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelarAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAluno.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarAluno.Location = new System.Drawing.Point(761, 533);
-            this.btnCancelarAluno.Name = "btnCancelarAluno";
-            this.btnCancelarAluno.Size = new System.Drawing.Size(82, 32);
-            this.btnCancelarAluno.TabIndex = 22;
-            this.btnCancelarAluno.Text = "Cancelar";
-            this.btnCancelarAluno.UseVisualStyleBackColor = false;
-            // 
             // btnVoltarCadAluno
             // 
             this.btnVoltarCadAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,17 +296,31 @@
             this.btnFecharCadAluno.UseVisualStyleBackColor = false;
             this.btnFecharCadAluno.Click += new System.EventHandler(this.btnFecharCadAluno_Click);
             // 
+            // btnCancelarAluno
+            // 
+            this.btnCancelarAluno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCancelarAluno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelarAluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAluno.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarAluno.Location = new System.Drawing.Point(761, 533);
+            this.btnCancelarAluno.Name = "btnCancelarAluno";
+            this.btnCancelarAluno.Size = new System.Drawing.Size(82, 32);
+            this.btnCancelarAluno.TabIndex = 50;
+            this.btnCancelarAluno.Text = "Cancelar";
+            this.btnCancelarAluno.UseVisualStyleBackColor = false;
+            this.btnCancelarAluno.Click += new System.EventHandler(this.btnCancelarAluno_Click);
+            // 
             // frmCadastroAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnCancelarAluno);
             this.Controls.Add(this.btnFecharCadAluno);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdAluno);
             this.Controls.Add(this.btnVoltarCadAluno);
-            this.Controls.Add(this.btnCancelarAluno);
             this.Controls.Add(this.btnSalvarAluno);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dtpDataNascAluno);
@@ -342,6 +343,7 @@
             this.Name = "frmCadastroAlunos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadastroAlunos";
+            this.Load += new System.EventHandler(this.frmCadastroAlunos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,11 +369,11 @@
         private System.Windows.Forms.DateTimePicker dtpDataNascAluno;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSalvarAluno;
-        private System.Windows.Forms.Button btnCancelarAluno;
         private System.Windows.Forms.Button btnVoltarCadAluno;
         private System.Windows.Forms.TextBox txtRgAluno;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdAluno;
         private System.Windows.Forms.Button btnFecharCadAluno;
+        private System.Windows.Forms.Button btnCancelarAluno;
     }
 }

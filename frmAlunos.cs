@@ -84,5 +84,10 @@ namespace sistemaGymLine
             frmDashboard frm = new frmDashboard();
             frm.Show();
         }
+
+        private void btnEditarAluno_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }
