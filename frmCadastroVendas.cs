@@ -142,8 +142,9 @@ namespace sistemaGymLine
             {
                 MessageBox.Show("Por favor, verifique o valor do produto.");
             }
-        }
 
+            
+        }
         private void btnCancelarVenda_Click(object sender, EventArgs e)
         {
             FormUtils.LimparCampos(this);

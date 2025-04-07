@@ -7,7 +7,7 @@
   <Width>10.08458in</Width>
   <Page>
     <PageHeader>
-      <Height>3.11396cm</Height>
+      <Height>3.07868cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -23,41 +23,6 @@
             </Border>
           </Style>
         </Image>
-        <Textbox Name="Textbox1">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Relatório de Mensalidades não pagas</Value>
-                  <Style>
-                    <FontSize>14pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.57891cm</Top>
-          <Left>9.08685cm</Left>
-          <Height>0.67938cm</Height>
-          <Width>9.34614cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox2">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -75,10 +40,45 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>2.51396cm</Top>
+          <Top>2.47868cm</Top>
           <Left>18.8815cm</Left>
           <Height>0.6cm</Height>
           <Width>6.09833cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Relatório de Vendas no mês</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.54363cm</Top>
+          <Left>9.08685cm</Left>
+          <Height>0.67938cm</Height>
+          <Width>9.34614cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -187,5 +187,5 @@ gAABAr8CDv13G80IECBAgEAWcOiZSpAAAQIECPwKOPTfbTQjQIAAAQJZwKFnKkECBAgQIPAr4NB/t9GM
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>e860fc51-f37b-44d8-beba-a9be61870551</rd:ReportID>
+  <rd:ReportID>dbbb78ac-e8a0-49b1-8480-6a832c65873b</rd:ReportID>
 </Report>

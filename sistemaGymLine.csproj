@@ -114,10 +114,10 @@
     <Compile Include="relatorios\frmRelatorioMensalidades.Designer.cs">
       <DependentUpon>frmRelatorioMensalidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelatorioVendas.cs">
+    <Compile Include="relatorios\frmRelatorioVendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRelatorioVendas.Designer.cs">
+    <Compile Include="relatorios\frmRelatorioVendas.Designer.cs">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmServicos.cs">
@@ -165,7 +165,7 @@
     <EmbeddedResource Include="relatorios\frmRelatorioMensalidades.resx">
       <DependentUpon>frmRelatorioMensalidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioVendas.resx">
+    <EmbeddedResource Include="relatorios\frmRelatorioVendas.resx">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmServicos.resx">
@@ -187,6 +187,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="relatorios\relMensalidades.rdlc" />
+    <EmbeddedResource Include="relatorios\relVendas.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
