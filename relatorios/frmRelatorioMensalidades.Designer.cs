@@ -31,8 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRelatorioMensalidades));
             this.btnSalvarRelMensalidades = new System.Windows.Forms.Button();
             this.btnFecharRelMensalidades = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnImprimirRelMensalidades = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvRelMensalidades = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelMensalidades)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvarRelMensalidades
@@ -61,16 +65,6 @@
             this.btnFecharRelMensalidades.UseVisualStyleBackColor = false;
             this.btnFecharRelMensalidades.Click += new System.EventHandler(this.btnFecharRelMensalidades_Click);
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "sistemaGymLine.relatorios.relMensalidades.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(262, 143);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(990, 471);
-            this.reportViewer1.TabIndex = 74;
-            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
-            // 
             // btnImprimirRelMensalidades
             // 
             this.btnImprimirRelMensalidades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -82,28 +76,63 @@
             this.btnImprimirRelMensalidades.Text = "Imprimir";
             this.btnImprimirRelMensalidades.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.dgvRelMensalidades);
+            this.panel1.Location = new System.Drawing.Point(251, 101);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1013, 579);
+            this.panel1.TabIndex = 80;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(654, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 25);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "Relatório de Alunos";
+            // 
+            // dgvRelMensalidades
+            // 
+            this.dgvRelMensalidades.BackgroundColor = System.Drawing.Color.White;
+            this.dgvRelMensalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRelMensalidades.Location = new System.Drawing.Point(11, 42);
+            this.dgvRelMensalidades.Name = "dgvRelMensalidades";
+            this.dgvRelMensalidades.Size = new System.Drawing.Size(990, 471);
+            this.dgvRelMensalidades.TabIndex = 82;
+            // 
             // frmRelatorioMensalidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFecharRelMensalidades);
             this.Controls.Add(this.btnSalvarRelMensalidades);
             this.Controls.Add(this.btnImprimirRelMensalidades);
+            this.Controls.Add(this.panel1);
             this.Name = "frmRelatorioMensalidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRelatorioMensalidades";
             this.Load += new System.EventHandler(this.frmRelatorioMensalidades_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRelMensalidades)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnSalvarRelMensalidades;
         private System.Windows.Forms.Button btnFecharRelMensalidades;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button btnImprimirRelMensalidades;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvRelMensalidades;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -106,6 +106,7 @@
             this.btnExcluirAluno.TabIndex = 5;
             this.btnExcluirAluno.Text = "Excluir";
             this.btnExcluirAluno.UseVisualStyleBackColor = true;
+            this.btnExcluirAluno.Click += new System.EventHandler(this.btnExcluirAluno_Click);
             // 
             // btnBuscarAluno
             // 
