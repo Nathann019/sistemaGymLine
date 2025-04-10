@@ -75,6 +75,7 @@
             this.btnEditarVenda.TabIndex = 28;
             this.btnEditarVenda.Text = "Editar";
             this.btnEditarVenda.UseVisualStyleBackColor = true;
+            this.btnEditarVenda.Click += new System.EventHandler(this.btnEditarVenda_Click);
             // 
             // label1
             // 
@@ -114,7 +115,7 @@
             // 
             this.dgvVendasCadastradas.BackgroundColor = System.Drawing.Color.White;
             this.dgvVendasCadastradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVendasCadastradas.Location = new System.Drawing.Point(339, 292);
+            this.dgvVendasCadastradas.Location = new System.Drawing.Point(339, 291);
             this.dgvVendasCadastradas.Name = "dgvVendasCadastradas";
             this.dgvVendasCadastradas.Size = new System.Drawing.Size(852, 273);
             this.dgvVendasCadastradas.TabIndex = 24;

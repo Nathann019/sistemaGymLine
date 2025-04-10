@@ -21,7 +21,7 @@ namespace sistemaGymLine
             documento.PrintPage += Documento_PrintPage;
         }
 
-        private void CarregarDados(DataTable dados)
+        public void CarregarDados(DataTable dados)
         {
             dgvRelVendas.DataSource = dados;
         }
@@ -45,12 +45,12 @@ namespace sistemaGymLine
             // Cabeçalhos
             e.Graphics.DrawString("ID da Venda", fonteCabecalho, Brushes.Black, margemEsquerda, y);
             e.Graphics.DrawString("ID do Produto", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("ID do Vendedor", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("Nome do Vendedor", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("ID do Cliente", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("Nome do Cliente", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("Valor", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
-            e.Graphics.DrawString("Data de Vencimento", fonteCabecalho, Brushes.Black, margemEsquerda + 250, y);
+            e.Graphics.DrawString("ID do Vendedor", fonteCabecalho, Brushes.Black, margemEsquerda + 450, y);
+            e.Graphics.DrawString("Nome do Vendedor", fonteCabecalho, Brushes.Black, margemEsquerda + 650, y);
+            e.Graphics.DrawString("ID do Cliente", fonteCabecalho, Brushes.Black, margemEsquerda + 850, y);
+            e.Graphics.DrawString("Nome do Cliente", fonteCabecalho, Brushes.Black, margemEsquerda + 1050, y);
+            e.Graphics.DrawString("Valor", fonteCabecalho, Brushes.Black, margemEsquerda + 1250, y);
+            e.Graphics.DrawString("Data de Vencimento", fonteCabecalho, Brushes.Black, margemEsquerda + 1450, y);
             y += linhaAltura;
 
             // Dados do DataGridView
@@ -60,10 +60,10 @@ namespace sistemaGymLine
 
                 e.Graphics.DrawString(row.Cells["idVenda"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda, y);
                 e.Graphics.DrawString(row.Cells["idServico"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 250, y);
-                e.Graphics.DrawString(row.Cells["idUsuario"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 250, y);
-                e.Graphics.DrawString(row.Cells["idAluno"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 250, y);
-                e.Graphics.DrawString(row.Cells["valorVenda"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 250, y);
-                e.Graphics.DrawString(row.Cells["dtVencVenda"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 250, y);
+                e.Graphics.DrawString(row.Cells["idUsuario"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 450, y);
+                e.Graphics.DrawString(row.Cells["idAluno"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 650, y);
+                e.Graphics.DrawString(row.Cells["valorVenda"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 850, y);
+                e.Graphics.DrawString(row.Cells["dtVencVenda"].Value?.ToString(), fonteCorpo, Brushes.Black, margemEsquerda + 1050, y);
 
                 y += linhaAltura;
 

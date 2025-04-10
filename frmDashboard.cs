@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -59,9 +60,26 @@ namespace sistemaGymLine
 
         private void btnRelatorioVendas_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmRelatorioVendas frm = new frmRelatorioVendas();
-            frm.ShowDialog();
+            DataTable vendas = BuscarVendas();
+
+            frmRelatorioVendas relatorio = new frmRelatorioVendas();
+            relatorio.CarregarDados(vendas);
+            relatorio.ShowDialog();
+        }
+
+        private DataTable BuscarVendas()
+        {
+            string query = "SELECT idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda FROM vendas";
+            DataTable tabela = new DataTable();
+            using (SqlConnection conn = new SqlConnection(conexao.IniciarCon))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                conn.Open();
+                da.Fill(tabela);
+            }
+            return tabela;
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
