@@ -22,6 +22,8 @@ namespace sistemaGymLine
             if (this.idVenda > 0)
                 GetVendas(idVenda);
         }
+
+       
         private void GetVendas(int idVenda)
         {
             try
@@ -43,9 +45,9 @@ namespace sistemaGymLine
                                     cmbProdVenda.Text = dr["idServico"].ToString();
                                     txtValorVenda.Text = dr["valorVenda"].ToString();
                                     cmbFormaPagVenda.Text = dr["formaPagVenda"].ToString();
-                                    txtTrocoVenda.Text = dr["trocoVenda"].ToString();
                                     dtpDataPagVenda.Text = dr["dataVenda"].ToString();
                                     dtpDataVencVenda.Text = dr["dtVencVenda"].ToString();
+                                    txtTrocoVenda.Text = dr["trocoVenda"].ToString();
                                 }
                             }
                         }
@@ -79,7 +81,7 @@ namespace sistemaGymLine
 
                     if (this.idVenda == 0)
                         //Define a consulta SQL que será executada
-                        sql = "INSERT INTO vendas (idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@idu, @ida, @ids, @valor, @formaPag,@dtVenda,@dtVenc, @troco)";
+                        sql = "INSERT INTO vendas (idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@idu, @ida, @ids, @valor, @formaPag, @dtVenda, @dtVenc, @troco)";
                     else
                         sql = "update vendas set idUsuario=@idu, idAluno=@ida, idServico=@ids, valorVenda=@Valor, formaPagVenda=@formaPag, dataVenda=@dtVenda, dtVencVenda=@dtVenc, trocoVenda=@troco where idVenda=" + this.idVenda;
                     //Cria um objeto SqlCommand que representa o comando SQL a ser executado. 
@@ -93,8 +95,7 @@ namespace sistemaGymLine
                         cmd.Parameters.AddWithValue("@valor", txtValorVenda.Text);
                         cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);
                         cmd.Parameters.AddWithValue("@dtVenda", dtpDataPagVenda.Text);
-                        cmd.Parameters.AddWithValue("@dtVencVenda", dtpDataVencVenda.Text);
-                        cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);
+                        cmd.Parameters.AddWithValue("@dtVenc", dtpDataVencVenda.Text);
                         cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
 
 
@@ -122,6 +123,7 @@ namespace sistemaGymLine
         {
             public string Text { get; set; }
             public object Value { get; set; }
+            public string ValorProd { get; set; }
 
             public override string ToString()
             {
@@ -162,14 +164,14 @@ namespace sistemaGymLine
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select idServico, prodServico from servicos", cn);
+                SqlCommand cmd = new SqlCommand("select prodServico, valorServico from servicos", cn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     cmbProdVenda.Items.Add(new ComboboxItem
                     {
                         Text = reader["prodServico"].ToString(),
-                        Value = reader["idServico"]
+                        Value = reader["valorServico"],
                     });
                 }
             }
@@ -210,41 +212,7 @@ namespace sistemaGymLine
 
         private void btnSalvarVenda_Click(object sender, EventArgs e)
         {
-            DateTime dataPagVenda = dtpDataPagVenda.Value;
-            DateTime dataVencVenda = dtpDataVencVenda.Value;
-
-            // Verifica se o valorVenda não está vazio ou com o texto "NULO"
-            decimal valorVenda = 0;
-            if (txtValorVenda.Text != "NULO" && decimal.TryParse(txtValorVenda.Text, out valorVenda))
-            {
-                try
-                {
-                    using (SqlConnection cn = new SqlConnection(connectionString))
-                    {
-                        cn.Open();
-                        var sql = "INSERT INTO vendas (valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@valor, @dataVenda, @dataVencProd, @troco)";
-                        using (SqlCommand cmd = new SqlCommand(sql, cn))
-                        {
-                            cmd.Parameters.AddWithValue("@valor", valorVenda);  // Usa o valorVenda calculado ou vindo do texto
-                            cmd.Parameters.AddWithValue("@dataVenda", dataPagVenda);
-                            cmd.Parameters.AddWithValue("@dataVencProd", dataVencVenda);
-                            cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
-
-                            cmd.ExecuteNonQuery();
-
-                            MessageBox.Show("Salvo com sucesso");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Dados não Salvos.\n\n" + ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, verifique o valor do produto.");
-            }
+            
 
             
         }
@@ -257,6 +225,75 @@ namespace sistemaGymLine
         {
             this.Hide();
             frmCadastroVendas frm = new frmCadastroVendas();
+            frm.Show();
+        }
+
+        private void btnSalvarVenda_Click_1(object sender, EventArgs e)
+        {
+            DateTime dataPagVenda = dtpDataPagVenda.Value;
+            DateTime dataVencVenda = dtpDataVencVenda.Value;
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon)) //cria uma nova conexão com o banco 
+                {
+                    cn.Open(); //Abre a conexão com o banco de dados. Sem isso, não é possível executar comandos SQL
+
+                    var sql = "";
+
+                    if (this.idVenda == 0)
+                        //Define a consulta SQL que será executada
+                        sql = "INSERT INTO vendas (idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@idu, @ida, @ids, @valor, @formaPag, @dtVenda, @dtVenc, @troco)";
+                    else
+                        sql = "update vendas set idUsuario=@idu, idAluno=@ida, idServico=@ids, valorVenda=@Valor, formaPagVenda=@formaPag, dataVenda=@dtVenda, dtVencVenda=@dtVenc, trocoVenda=@troco where idVenda=" + this.idVenda;
+                    //Cria um objeto SqlCommand que representa o comando SQL a ser executado. 
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        //Adiciona os valores dos parâmetros ao comando SQL. Cada parâmetro é associado a um valor obtido dos controles
+                        //do formulário (txtNome.Text, txtData.Text, etc.).
+                        cmd.Parameters.AddWithValue("@idu", cmbVendedorVenda.Text);
+                        cmd.Parameters.AddWithValue("@ida", cmbIdAluno.Text);
+                        cmd.Parameters.AddWithValue("@ids", cmbProdVenda.Text);
+                        cmd.Parameters.AddWithValue("@valor", txtValorVenda.Text);
+                        cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);
+                        cmd.Parameters.AddWithValue("@dtVenda", dtpDataPagVenda.Text);
+                        cmd.Parameters.AddWithValue("@dtVenc", dtpDataVencVenda.Text);
+                        cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
+
+
+                        cmd.ExecuteNonQuery();//Executa o comando SQL no banco de dados.
+
+                        MessageBox.Show("Salvo com sucesso");//Se o comando SQL for executado com sucesso, uma mensagem é exibida ao usuário 
+                    }
+                }
+            }
+            //Se ocorrer algum erro durante a execução do código no bloco try, o controle será passado para o bloco catch.
+            catch (Exception ex) //Exception ex: Captura a exceção gerada.
+            {
+                MessageBox.Show("Dados não salvos.\n\n" + ex.Message);//exibe uma mensagem de erro ao usuário, incluindo a mensagem da exceção (ex.Message).
+
+            }
+        }
+
+        private void cmbProdVenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProdVenda.SelectedItem is ComboboxItem item)
+            {
+                txtValorVenda.Text = item.Value.ToString();
+            }
+        }
+
+        private void btnVoltarCadVenda_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmVendas frm = new frmVendas();
+            frm.Show();
+        }
+
+        private void btnFecharCadVenda_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard frm = new frmDashboard();
             frm.Show();
         }
     }

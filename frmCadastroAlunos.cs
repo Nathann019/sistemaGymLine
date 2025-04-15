@@ -14,11 +14,56 @@ namespace sistemaGymLine
 {
     public partial class frmCadastroAlunos: Form
     {
-        public frmCadastroAlunos()
+        int idAluno = 0;
+        public frmCadastroAlunos(int idAluno)
         {
             InitializeComponent();
+            this.idAluno = idAluno;
+            if (this.idAluno > 0)
+                GetAlunos(idAluno);
         }
+        private void GetAlunos(int idAluno)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sql = "select*from alunos where idAluno=" + idAluno;
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                if (dr.Read())
+                                {
+                                    txtNomeAluno.Text = dr["nomeAluno"].ToString();
+                                    txtEnderecoAluno.Text = dr["enderecoAluno"].ToString();
+                                    txtTelAluno.Text = dr["telAluno"].ToString();
+                                    txtRgAluno.Text = dr["rgAluno"].ToString();
+                                    txtCpfAluno.Text = dr["cpfAluno"].ToString();
+                                    cmbSexoAluno.Text = dr["sexoAluno"].ToString();
+                                    dtpDataNascAluno.Text = dr["datNascAluno"].ToString();
+                                    txtIdadeAluno.Text = dr["idadeAluno"].ToString();
+                                    txtObsAluno.Text = dr["obsAluno"].ToString();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dados não atualizado .\n\n" + ex.Message);
 
+            }
+        }
+            
+
+             
+
+            
         private void label1_Click(object sender, EventArgs e)
         {
 

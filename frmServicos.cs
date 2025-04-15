@@ -123,5 +123,64 @@ namespace sistemaGymLine
             frmDashboard frm = new frmDashboard();
             frm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dgvServicosCadastrados.SelectedRows.Count > 0)
+            {
+                // Pega o idServico da linha selecionada
+                int idServico = Convert.ToInt32(dgvServicosCadastrados.SelectedRows[0].Cells["idServico"].Value);
+
+                var confirm = MessageBox.Show("Tem certeza que deseja excluir este serviço?", "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                        {
+                            cn.Open();
+                            string sql = "DELETE FROM servicos WHERE idServico = @id";
+                            using (SqlCommand cmd = new SqlCommand(sql, cn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", idServico);
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Serviço excluído com sucesso!");
+                                BuscarServico(); // Recarrega a tabela após exclusão
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir serviço.\n\n" + ex.Message);
+                    }
+                }
+            }
+        }
+        private void BuscarServico()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sqlQuery = "select * from servicos where prodService like '%" + txtBuscarServico.Text + "%'" +
+                        "or idServico like '%" + txtBuscarServico.Text + "%'" +
+                        "or valorServico like '%" + txtBuscarServico.Text + "%'";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            da.Fill(dt);
+                            dgvServicosCadastrados.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados.\n\n" + ex.Message);
+            }
+        }
     }
 }

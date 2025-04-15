@@ -20,7 +20,9 @@ namespace sistemaGymLine
 
         private void btnCadastrarVenda_Click(object sender, EventArgs e)
         {
-         
+            this.Hide();
+            frmCadastroVendas frm = new frmCadastroVendas();
+            frm.Show();
         }
 
         private void btnBuscarVenda_Click(object sender, EventArgs e)
@@ -106,6 +108,66 @@ namespace sistemaGymLine
         private void BuscarNovamente()
         {
             throw new NotImplementedException();
+        }
+
+        private void btnExcluirVenda_Click(object sender, EventArgs e)
+        {
+            if (dgvVendasCadastradas.SelectedRows.Count > 0)
+            {
+                // Pega o idAluno da linha selecionada
+                int idVenda = Convert.ToInt32(dgvVendasCadastradas.SelectedRows[0].Cells["idVenda"].Value);
+
+                var confirm = MessageBox.Show("Tem certeza que deseja excluir esta venda?", "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                        {
+                            cn.Open();
+                            string sql = "DELETE FROM vendas WHERE idVenda = @id";
+                            using (SqlCommand cmd = new SqlCommand(sql, cn))
+                            {
+                                cmd.Parameters.AddWithValue("@id", idVenda);
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Venda excluída com sucesso!");
+                                BuscarVenda(); // Recarrega a tabela após exclusão
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir venda.\n\n" + ex.Message);
+                    }
+                }
+            }
+        }
+        private void BuscarVenda()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sqlQuery = "select * from vendas where nomeVenda like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idAluno like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idUsuario like '%" + txtBuscarVenda.Text + "%'" +
+                        "or cpfServico like '%" + txtBuscarVenda.Text + "%'";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            da.Fill(dt);
+                            dgvVendasCadastradas.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados.\n\n" + ex.Message);
+            }
         }
     }
 }

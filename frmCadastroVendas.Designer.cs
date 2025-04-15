@@ -51,7 +51,6 @@
             this.cmbIdAluno = new System.Windows.Forms.ComboBox();
             this.dtpDataVencVenda = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnBuscarVenda1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnVoltarCadVenda
@@ -64,6 +63,7 @@
             this.btnVoltarCadVenda.TabIndex = 65;
             this.btnVoltarCadVenda.Text = "Voltar";
             this.btnVoltarCadVenda.UseVisualStyleBackColor = true;
+            this.btnVoltarCadVenda.Click += new System.EventHandler(this.btnVoltarCadVenda_Click_1);
             // 
             // btnCancelarVenda
             // 
@@ -90,6 +90,7 @@
             this.btnSalvarVenda.TabIndex = 63;
             this.btnSalvarVenda.Text = "Salvar";
             this.btnSalvarVenda.UseVisualStyleBackColor = false;
+            this.btnSalvarVenda.Click += new System.EventHandler(this.btnSalvarVenda_Click_1);
             // 
             // label9
             // 
@@ -110,6 +111,7 @@
             this.cmbProdVenda.Name = "cmbProdVenda";
             this.cmbProdVenda.Size = new System.Drawing.Size(332, 28);
             this.cmbProdVenda.TabIndex = 59;
+            this.cmbProdVenda.SelectedIndexChanged += new System.EventHandler(this.cmbProdVenda_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -238,6 +240,7 @@
             this.btnFecharCadVenda.TabIndex = 72;
             this.btnFecharCadVenda.Text = "X";
             this.btnFecharCadVenda.UseVisualStyleBackColor = false;
+            this.btnFecharCadVenda.Click += new System.EventHandler(this.btnFecharCadVenda_Click_1);
             // 
             // label3
             // 
@@ -289,27 +292,12 @@
             this.label7.TabIndex = 78;
             this.label7.Text = "Data de Vencimento";
             // 
-            // btnBuscarVenda1
-            // 
-            this.btnBuscarVenda1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnBuscarVenda1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscarVenda1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarVenda1.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarVenda1.Location = new System.Drawing.Point(877, 533);
-            this.btnBuscarVenda1.Name = "btnBuscarVenda1";
-            this.btnBuscarVenda1.Size = new System.Drawing.Size(82, 32);
-            this.btnBuscarVenda1.TabIndex = 80;
-            this.btnBuscarVenda1.Text = "Buscar";
-            this.btnBuscarVenda1.UseVisualStyleBackColor = false;
-            this.btnBuscarVenda1.Click += new System.EventHandler(this.btnBuscarVenda1_Click_1);
-            // 
             // frmCadastroVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.btnBuscarVenda1);
             this.Controls.Add(this.dtpDataVencVenda);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbIdAluno);
@@ -364,6 +352,5 @@
         private System.Windows.Forms.ComboBox cmbIdAluno;
         private System.Windows.Forms.DateTimePicker dtpDataVencVenda;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnBuscarVenda1;
     }
 }

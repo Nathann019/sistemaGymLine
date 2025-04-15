@@ -21,7 +21,7 @@ namespace sistemaGymLine
         private void btnCadastrarAluno_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCadastroAlunos frm = new frmCadastroAlunos();
+            frmCadastroAlunos frm = new frmCadastroAlunos(0);
             frm.ShowDialog();
         }
 
@@ -87,14 +87,26 @@ namespace sistemaGymLine
 
         private void btnEditarAluno_Click(object sender, EventArgs e)
         {
+            if (dgvAlunosCadastrados.SelectedRows.Count > 0)
+            {
+                int idAluno = Convert.ToInt32(dgvAlunosCadastrados.SelectedRows[0].Cells["idAluno"].Value);
 
+                this.Hide();
+                frmCadastroAlunos frm = new frmCadastroAlunos(idAluno);
+                frm.ShowDialog();
+
+                BuscarNovamente();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma venda para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnExcluirAluno_Click(object sender, EventArgs e)
         {
             if (dgvAlunosCadastrados.SelectedRows.Count > 0)
             {
-                // Pega o idAluno da linha selecionada
                 int idAluno = Convert.ToInt32(dgvAlunosCadastrados.SelectedRows[0].Cells["idAluno"].Value);
 
                 var confirm = MessageBox.Show("Tem certeza que deseja excluir este aluno?", "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
