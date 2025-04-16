@@ -123,13 +123,14 @@ namespace sistemaGymLine
         {
             public string Text { get; set; }
             public object Value { get; set; }
-            public string ValorProd { get; set; }
+            public decimal ValorProd { get; set; }
 
             public override string ToString()
             {
-                return Text;
+                return Text; // Isso faz com que apareça o nome no ComboBox
             }
         }
+
 
         private string connectionString = conexao.IniciarCon;
 
@@ -143,55 +144,65 @@ namespace sistemaGymLine
 
         private void CarregarVendedor()
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select idUsuario, nomeCompUsuario from usuarios", cn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    cmbVendedorVenda.Items.Add(new ComboboxItem
-                    {
-                        Text = reader["nomeCompUsuario"].ToString(),
-                        Value = reader["idUsuario"]
-                    });
-                }
+                string sql = "SELECT idUsuario, nomeUsuario FROM usuarios";
+
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbVendedorVenda.DataSource = dt;
+                cmbVendedorVenda.DisplayMember = "nomeUsuario"; // Exibe o nome
+                cmbVendedorVenda.ValueMember = "idUsuario";     // Usa o ID internamente
             }
         }
 
+
+
+
         private void CarregarProduto()
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select prodServico, valorServico from servicos", cn);
+                string sql = "SELECT idServico, prodServico, valorServico FROM servicos";
+
+                SqlCommand cmd = new SqlCommand(sql, cn);
                 SqlDataReader reader = cmd.ExecuteReader();
+
+                cmbProdVenda.Items.Clear();
+
                 while (reader.Read())
                 {
                     cmbProdVenda.Items.Add(new ComboboxItem
                     {
                         Text = reader["prodServico"].ToString(),
-                        Value = reader["valorServico"],
+                        Value = Convert.ToInt32(reader["idServico"]), // garante que é int
+                        ValorProd = Convert.ToDecimal(reader["valorServico"])
                     });
                 }
             }
         }
+        
+
+
 
         private void CarregarIdAluno()
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
             {
                 cn.Open();
-                SqlCommand cmd = new SqlCommand("select idAluno, nomeAluno from alunos", cn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    cmbIdAluno.Items.Add(new ComboboxItem
-                    {
-                        Text = reader["nomeAluno"].ToString(),
-                        Value = reader["idAluno"]
-                    });
-                }
+                string sql = "SELECT idAluno, nomeAluno FROM alunos";  // Consulta para buscar os alunos
+
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbIdAluno.DataSource = dt;
+                cmbIdAluno.DisplayMember = "nomeAluno"; // O nome que aparece no ComboBox
+                cmbIdAluno.ValueMember = "idAluno";     // O valor que será usado (ID do aluno)
             }
         }
 
@@ -228,6 +239,8 @@ namespace sistemaGymLine
             frm.Show();
         }
 
+
+
         private void btnSalvarVenda_Click_1(object sender, EventArgs e)
         {
             DateTime dataPagVenda = dtpDataPagVenda.Value;
@@ -235,38 +248,111 @@ namespace sistemaGymLine
 
             try
             {
-                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon)) //cria uma nova conexão com o banco 
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon)) // Cria a conexão
                 {
-                    cn.Open(); //Abre a conexão com o banco de dados. Sem isso, não é possível executar comandos SQL
+                    cn.Open(); // Abre a conexão com o banco
 
-                    var sql = "";
+                    string sql = "";
 
+                    // Se idVenda for 0, faz o INSERT. Se não, faz o UPDATE.
                     if (this.idVenda == 0)
-                        //Define a consulta SQL que será executada
-                        sql = "INSERT INTO vendas (idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) VALUES (@idu, @ida, @ids, @valor, @formaPag, @dtVenda, @dtVenc, @troco)";
-                    else
-                        sql = "update vendas set idUsuario=@idu, idAluno=@ida, idServico=@ids, valorVenda=@Valor, formaPagVenda=@formaPag, dataVenda=@dtVenda, dtVencVenda=@dtVenc, trocoVenda=@troco where idVenda=" + this.idVenda;
-                    //Cria um objeto SqlCommand que representa o comando SQL a ser executado. 
-                    using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
-                        //Adiciona os valores dos parâmetros ao comando SQL. Cada parâmetro é associado a um valor obtido dos controles
-                        //do formulário (txtNome.Text, txtData.Text, etc.).
-                        cmd.Parameters.AddWithValue("@idu", cmbVendedorVenda.Text);
-                        cmd.Parameters.AddWithValue("@ida", cmbIdAluno.Text);
-                        cmd.Parameters.AddWithValue("@ids", cmbProdVenda.Text);
-                        cmd.Parameters.AddWithValue("@valor", txtValorVenda.Text);
-                        cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);
-                        cmd.Parameters.AddWithValue("@dtVenda", dtpDataPagVenda.Text);
-                        cmd.Parameters.AddWithValue("@dtVenc", dtpDataVencVenda.Text);
-                        cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);
+                        sql = "INSERT INTO vendas (idUsuario, idAluno, idServico, valorVenda, formaPagVenda, dataVenda, dtVencVenda, trocoVenda) " +
+                              "VALUES (@idu, @ida, @ids, @valor, @formaPag, @dtVenda, @dtVenc, @troco)";
+                    }
+                    else
+                    {
+                        sql = "UPDATE vendas SET idUsuario=@idu, idAluno=@ida, idServico=@ids, valorVenda=@valor, formaPagVenda=@formaPag, " +
+                              "dataVenda=@dtVenda, dtVencVenda=@dtVenc, trocoVenda=@troco WHERE idVenda=" + this.idVenda;
+                    }
 
+                    using (SqlCommand cmd = new SqlCommand(sql, cn)) // Comando SQL a ser executado
+                    {
+                        // Aqui estamos pegando o valor do SelectedValue do ComboBox e passando o ID do vendedor para o comando
+                        if (cmbVendedorVenda.SelectedValue != null)
+                        {
+                            cmd.Parameters.AddWithValue("@idu", Convert.ToInt32(cmbVendedorVenda.SelectedValue)); // Passa o ID do usuário
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecione um vendedor válido.");
+                            return; // Retorna se não for selecionado um vendedor
+                        }
 
-                        cmd.ExecuteNonQuery();//Executa o comando SQL no banco de dados.
+                        // Aqui estamos pegando o valor do SelectedValue do ComboBox e passando o ID do aluno para o comando
+                        if (cmbIdAluno.SelectedValue != null)
+                        {
+                            cmd.Parameters.AddWithValue("@ida", Convert.ToInt32(cmbIdAluno.SelectedValue)); // Passa o ID do aluno
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecione um aluno válido.");
+                            return; // Retorna se não for selecionado um aluno
+                        }
 
-                        MessageBox.Show("Salvo com sucesso");//Se o comando SQL for executado com sucesso, uma mensagem é exibida ao usuário 
+                        if (cmbProdVenda.SelectedItem is ComboboxItem itemServico)
+                        {
+                            int idServico = Convert.ToInt32(itemServico.Value); // 👈 aqui o ID é tratado como int
+                            cmd.Parameters.AddWithValue("@ids", idServico);     // 👈 mandamos como int (não texto)
+                        }
+                        else
+                        {
+                            MessageBox.Show("Selecione um serviço válido.");
+                            return;
+                        }
+
+                        {
+                         
+                            // VALOR da venda
+                            if (!decimal.TryParse(txtValorVenda.Text, out decimal valorVenda))
+                            {
+                                MessageBox.Show("Valor da venda inválido.");
+                                return;
+                            }
+                            cmd.Parameters.AddWithValue("@valor", valorVenda);
+
+                            // Forma de pagamento
+                            cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);
+
+                            // Datas
+                            cmd.Parameters.AddWithValue("@dtVenda", dtpDataPagVenda.Value);
+                            cmd.Parameters.AddWithValue("@dtVenc", dtpDataVencVenda.Value);
+
+                            // TROCO
+                            if (!decimal.TryParse(txtTrocoVenda.Text, out decimal troco))
+                            {
+                                MessageBox.Show("Troco inválido.");
+                                return;
+                            }
+                            cmd.Parameters.AddWithValue("@troco", troco);
+
+                            // Se for edição (update)
+                            if (this.idVenda != 0)
+                            {
+                                cmd.Parameters.AddWithValue("@idVenda", this.idVenda);
+                            }
+
+                            // Executa
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Venda salva com sucesso!");
+                        }
+
+                        // Adicionando os parâmetros restantes
+                        //cmd.Parameters.AddWithValue("@valor", txtValorVenda.Text);  // Passa o valor da venda
+                        //cmd.Parameters.AddWithValue("@formaPag", cmbFormaPagVenda.Text);  // Forma de pagamento
+                        //cmd.Parameters.AddWithValue("@dtVenda", dtpDataPagVenda.Value);  // Data da venda
+                        //cmd.Parameters.AddWithValue("@dtVenc", dtpDataVencVenda.Value);  // Data de vencimento
+                        //cmd.Parameters.AddWithValue("@troco", txtTrocoVenda.Text);  // Troco
+
+                        // Executa o comando SQL
+                        cmd.ExecuteNonQuery();
+
+                        // Mensagem de sucesso
+                        MessageBox.Show("Salvo com sucesso");
                     }
                 }
             }
+
             //Se ocorrer algum erro durante a execução do código no bloco try, o controle será passado para o bloco catch.
             catch (Exception ex) //Exception ex: Captura a exceção gerada.
             {
@@ -275,12 +361,25 @@ namespace sistemaGymLine
             }
         }
 
+
+
         private void cmbProdVenda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbProdVenda.SelectedItem is ComboboxItem item)
+            if (cmbProdVenda.SelectedItem is ComboboxItem selectedItem)
             {
-                txtValorVenda.Text = item.Value.ToString();
+                txtValorVenda.Text = selectedItem.ValorProd.ToString("F2"); ; // Exibe com duas casas decimais
             }
+            else
+            {
+                txtValorVenda.Text = ""; // Ou mantém o valor anterior
+            }
+
+            
+
+
+           
+
+
         }
 
         private void btnVoltarCadVenda_Click_1(object sender, EventArgs e)

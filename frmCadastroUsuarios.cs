@@ -14,9 +14,44 @@ namespace sistemaGymLine
 {
     public partial class frmCadastroUsuarios: Form
     {
-        public frmCadastroUsuarios()
+        int idUsuario = 0;
+        public frmCadastroUsuarios(int idUsuario)
         {
             InitializeComponent();
+            this.idUsuario = idUsuario;
+            if (this.idUsuario > 0)
+                GetUsers(idUsuario);
+        }
+        private void GetUsers(int idUsuario)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sql = "select*from usuarios where idUsuario=" + idUsuario;
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+                    {
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                if (dr.Read())
+                                {
+                                    txtNomeCompletoUser.Text = dr["nomeCompUsuario"].ToString();
+                                    txtNomeUser.Text = dr["nomeUsuario"].ToString();
+                                    txtSenhaUser.Text = dr["senhaUsuario"].ToString();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dados não atualizado .\n\n" + ex.Message);
+
+            }
         }
 
         private void btnVoltarCadUser_Click(object sender, EventArgs e)
@@ -40,10 +75,16 @@ namespace sistemaGymLine
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sql = "INSERT INTO usuarios (nomeCompUsuario, nomeUsuario, senhaUsuario) VALUES (@nomeComp, @nomeUser, @senhaUser)";
+                    
+                        var sql = "";
+                    if (this.idUsuario == 0)
+                        sql = "INSERT INTO usuarios (nomeCompUsuario, nomeUsuario, senhaUsuario) VALUES (@nomeCompleto, @nomeUser, @senhaUser)";
+
+                    else
+                        sql = "UPDATE usuarios set nomeCompUsuario = @nomeCompleto , nomeUsuario = @nomeUser, senhaUsuario = @senhaUser WHERE idUsuario=" + this.idUsuario;
                     using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
-                        cmd.Parameters.AddWithValue("@nomeComp", txtNomeCompletoUser.Text);
+                        cmd.Parameters.AddWithValue("@nomeCompleto", txtNomeCompletoUser.Text);
                         cmd.Parameters.AddWithValue("@nomeUser", txtNomeUser.Text);
                         cmd.Parameters.AddWithValue("@senhaUser", txtSenhaUser.Text);
                         

@@ -105,9 +105,9 @@
             // 
             this.btnRelatorioMensalidades.Location = new System.Drawing.Point(70, 414);
             this.btnRelatorioMensalidades.Name = "btnRelatorioMensalidades";
-            this.btnRelatorioMensalidades.Size = new System.Drawing.Size(120, 52);
+            this.btnRelatorioMensalidades.Size = new System.Drawing.Size(120, 42);
             this.btnRelatorioMensalidades.TabIndex = 12;
-            this.btnRelatorioMensalidades.Text = "Relatório de Mensalidades não pagas";
+            this.btnRelatorioMensalidades.Text = "Relatório de Alunos";
             this.btnRelatorioMensalidades.UseVisualStyleBackColor = true;
             this.btnRelatorioMensalidades.Click += new System.EventHandler(this.btnRelatorioMensalidades_Click);
             // 
@@ -122,9 +122,9 @@
             // 
             // btnRelatorioVendas
             // 
-            this.btnRelatorioVendas.Location = new System.Drawing.Point(70, 488);
+            this.btnRelatorioVendas.Location = new System.Drawing.Point(70, 476);
             this.btnRelatorioVendas.Name = "btnRelatorioVendas";
-            this.btnRelatorioVendas.Size = new System.Drawing.Size(120, 37);
+            this.btnRelatorioVendas.Size = new System.Drawing.Size(120, 40);
             this.btnRelatorioVendas.TabIndex = 14;
             this.btnRelatorioVendas.Text = "Relatório de Vendas realizadas no mês";
             this.btnRelatorioVendas.UseVisualStyleBackColor = true;

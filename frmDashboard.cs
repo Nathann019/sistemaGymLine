@@ -53,15 +53,36 @@ namespace sistemaGymLine
 
         private void btnRelatorioMensalidades_Click(object sender, EventArgs e)
         {
+            DataTable alunos = BuscarAlunos();
+
             this.Hide();
-            frmRelatorioMensalidades frm = new frmRelatorioMensalidades();
-            frm.ShowDialog();
+            frmRelatorioMensalidades relatorio = new frmRelatorioMensalidades();
+            relatorio.CarregarDados(alunos);
+            relatorio.ShowDialog();
+
         }
+
+        private DataTable BuscarAlunos()
+        {
+            string query = "SELECT idAluno, nomeAluno, enderecoAluno, telAluno, rgAluno, cpfAluno, sexoAluno, datNascAluno, idadeAluno, obsAluno FROM alunos";
+            DataTable tabela = new DataTable();
+            using (SqlConnection conn = new SqlConnection(conexao.IniciarCon))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+            {
+                conn.Open();
+                da.Fill(tabela);
+            }
+            return tabela;
+
+        }
+
 
         private void btnRelatorioVendas_Click(object sender, EventArgs e)
         {
             DataTable vendas = BuscarVendas();
 
+            this.Hide();
             frmRelatorioVendas relatorio = new frmRelatorioVendas();
             relatorio.CarregarDados(vendas);
             relatorio.ShowDialog();

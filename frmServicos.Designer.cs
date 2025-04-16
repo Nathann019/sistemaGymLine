@@ -34,9 +34,9 @@
             this.txtBuscarServico = new System.Windows.Forms.TextBox();
             this.btnBuscarServico = new System.Windows.Forms.Button();
             this.dgvServicosCadastrados = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnFecharServico = new System.Windows.Forms.Button();
+            this.btnEditarServico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicosCadastrados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,17 +98,6 @@
             this.dgvServicosCadastrados.Size = new System.Drawing.Size(852, 273);
             this.dgvServicosCadastrados.TabIndex = 27;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(1024, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Editar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,6 +124,18 @@
             this.btnFecharServico.UseVisualStyleBackColor = false;
             this.btnFecharServico.Click += new System.EventHandler(this.btnFecharServico_Click);
             // 
+            // btnEditarServico
+            // 
+            this.btnEditarServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarServico.ForeColor = System.Drawing.Color.Blue;
+            this.btnEditarServico.Location = new System.Drawing.Point(1024, 583);
+            this.btnEditarServico.Name = "btnEditarServico";
+            this.btnEditarServico.Size = new System.Drawing.Size(75, 33);
+            this.btnEditarServico.TabIndex = 32;
+            this.btnEditarServico.Text = "Editar";
+            this.btnEditarServico.UseVisualStyleBackColor = true;
+            this.btnEditarServico.Click += new System.EventHandler(this.btnEditarServico_Click);
+            // 
             // frmServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,8 +148,8 @@
             this.Controls.Add(this.btnCadastrarServico);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvServicosCadastrados);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnEditarServico);
             this.Name = "frmServicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmServicos";
@@ -164,8 +165,8 @@
         private System.Windows.Forms.TextBox txtBuscarServico;
         private System.Windows.Forms.Button btnBuscarServico;
         private System.Windows.Forms.DataGridView dgvServicosCadastrados;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnFecharServico;
+        private System.Windows.Forms.Button btnEditarServico;
     }
 }

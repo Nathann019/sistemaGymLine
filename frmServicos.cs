@@ -61,7 +61,7 @@ namespace sistemaGymLine
         private void btnCadastrarServico_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCadastroServicos frm = new frmCadastroServicos();
+            frmCadastroServicos frm = new frmCadastroServicos(0);
             frm.ShowDialog();
         }
 
@@ -164,7 +164,56 @@ namespace sistemaGymLine
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sqlQuery = "select * from servicos where prodService like '%" + txtBuscarServico.Text + "%'" +
+                    var sqlQuery = "select * from servicos where prodServico like '%" + txtBuscarServico.Text + "%'" +
+                        "or idServico like '%" + txtBuscarServico.Text + "%'" +
+                        "or valorServico like '%" + txtBuscarServico.Text + "%'";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            da.Fill(dt);
+                            dgvServicosCadastrados.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados.\n\n" + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditarServico_Click(object sender, EventArgs e)
+        {
+            if (dgvServicosCadastrados.SelectedRows.Count > 0)
+            {
+                int idServico = Convert.ToInt32(dgvServicosCadastrados.SelectedRows[0].Cells["idServico"].Value);
+
+                this.Hide();
+                frmCadastroServicos frm = new frmCadastroServicos(idServico);
+                frm.ShowDialog();
+
+                BuscarNovamente();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um serviço para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void BuscarNovamente()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sqlQuery = "select * from servicos where prodServico like '%" + txtBuscarServico.Text + "%'" +
                         "or idServico like '%" + txtBuscarServico.Text + "%'" +
                         "or valorServico like '%" + txtBuscarServico.Text + "%'";
                     using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
@@ -184,3 +233,5 @@ namespace sistemaGymLine
         }
     }
 }
+
+

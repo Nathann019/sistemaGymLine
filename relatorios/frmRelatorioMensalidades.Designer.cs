@@ -33,8 +33,8 @@
             this.btnFecharRelMensalidades = new System.Windows.Forms.Button();
             this.btnImprimirRelMensalidades = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvRelMensalidades = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelMensalidades)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,7 @@
             this.btnImprimirRelMensalidades.TabIndex = 1;
             this.btnImprimirRelMensalidades.Text = "Imprimir";
             this.btnImprimirRelMensalidades.UseVisualStyleBackColor = true;
+            this.btnImprimirRelMensalidades.Click += new System.EventHandler(this.btnImprimirRelMensalidades_Click);
             // 
             // panel1
             // 
@@ -84,6 +85,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1013, 579);
             this.panel1.TabIndex = 80;
+            // 
+            // dgvRelMensalidades
+            // 
+            this.dgvRelMensalidades.BackgroundColor = System.Drawing.Color.White;
+            this.dgvRelMensalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRelMensalidades.Location = new System.Drawing.Point(11, 42);
+            this.dgvRelMensalidades.Name = "dgvRelMensalidades";
+            this.dgvRelMensalidades.Size = new System.Drawing.Size(990, 471);
+            this.dgvRelMensalidades.TabIndex = 82;
             // 
             // label1
             // 
@@ -95,15 +105,6 @@
             this.label1.Size = new System.Drawing.Size(200, 25);
             this.label1.TabIndex = 81;
             this.label1.Text = "Relatório de Alunos";
-            // 
-            // dgvRelMensalidades
-            // 
-            this.dgvRelMensalidades.BackgroundColor = System.Drawing.Color.White;
-            this.dgvRelMensalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRelMensalidades.Location = new System.Drawing.Point(11, 42);
-            this.dgvRelMensalidades.Name = "dgvRelMensalidades";
-            this.dgvRelMensalidades.Size = new System.Drawing.Size(990, 471);
-            this.dgvRelMensalidades.TabIndex = 82;
             // 
             // frmRelatorioMensalidades
             // 

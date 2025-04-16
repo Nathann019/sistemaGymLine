@@ -21,7 +21,7 @@ namespace sistemaGymLine
         private void btnCadastrarUser_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCadastroUsuarios frm = new frmCadastroUsuarios();
+            frmCadastroUsuarios frm = new frmCadastroUsuarios(0);
             frm.ShowDialog();
         }
 
@@ -142,6 +142,49 @@ namespace sistemaGymLine
                 MessageBox.Show("Erro ao carregar dados.\n\n" + ex.Message);
             }
         }
+
+        private void btnEditarUser_Click(object sender, EventArgs e)
+        {
+            if (dgvUsersCadastrados.SelectedRows.Count > 0)
+            {
+                int idUsuario = Convert.ToInt32(dgvUsersCadastrados.SelectedRows[0].Cells["idUsuario"].Value);
+
+                this.Hide();
+                frmCadastroUsuarios frm = new frmCadastroUsuarios(idUsuario);
+                frm.ShowDialog();
+
+                BuscarNovamente();
+            }
+            else
+            {
+                MessageBox.Show("Selecione um usuário para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void BuscarNovamente()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sqlQuery = "select * from usuarios where nomeUsuario like '%" + txtBuscarUser.Text + "%'" +
+                        "or idUsuario like '%" + txtBuscarUser.Text + "%'" +
+                        "or nomeCompUsuario like '%" + txtBuscarUser.Text + "%'";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
+                    {
+                        using (DataTable dt = new DataTable())
+                        {
+                            da.Fill(dt);
+                            dgvUsersCadastrados.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados.\n\n" + ex.Message);
+            }
+        }
     }
 }
-       

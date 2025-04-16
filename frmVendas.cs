@@ -150,10 +150,9 @@ namespace sistemaGymLine
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sqlQuery = "select * from vendas where nomeVenda like '%" + txtBuscarVenda.Text + "%'" +
-                        "or idAluno like '%" + txtBuscarVenda.Text + "%'" +
-                        "or idUsuario like '%" + txtBuscarVenda.Text + "%'" +
-                        "or cpfServico like '%" + txtBuscarVenda.Text + "%'";
+                    var sqlQuery = "select * from vendas where idAluno like '%" + txtBuscarVenda.Text + "%'" +
+                        "or idUsuario like '%" + txtBuscarVenda.Text + "%'";
+                        
                     using (SqlDataAdapter da = new SqlDataAdapter(sqlQuery, cn))
                     {
                         using (DataTable dt = new DataTable())

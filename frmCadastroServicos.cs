@@ -14,9 +14,47 @@ namespace sistemaGymLine
 {
     public partial class frmCadastroServicos: Form
     {
-        public frmCadastroServicos()
+
+        int idServico = 0;
+        public frmCadastroServicos(int idServico)
         {
             InitializeComponent();
+            this.idServico = idServico;
+            if (this.idServico > 0)
+                GetServico(idServico);
+        }
+        private void GetServico(int idServico)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
+                {
+                    cn.Open();
+                    var sql = "select*from servicos where idServico=" + idServico;
+                    using (SqlCommand cmd = new SqlCommand(sql, cn))
+
+
+                    {
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                if (dr.Read())
+                                {
+                                    txtProd.Text = dr["prodServico"].ToString();
+                                    txtValorProd.Text = dr["valorServico"].ToString();
+                                    txtObsProd.Text = dr["obsServico"].ToString();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dados não atualizado .\n\n" + ex.Message);
+
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -46,7 +84,13 @@ namespace sistemaGymLine
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sql = "INSERT INTO servicos (prodServico, valorServico, obsServico) VALUES (@produto, @valor, @obs)";
+                    
+                        var sql = "";
+                    if (this.idServico == 0)
+                        sql = "INSERT INTO servicos (prodServico, valorServico, obsServico) VALUES (@produto, @valor, @obs)";
+
+                    else
+                        sql = "UPDATE servicos set prodServico = @produto , valorServico = @valor, obsServico = @obs WHERE idServico=" + this.idServico;
                     using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
                         cmd.Parameters.AddWithValue("@produto", txtProd.Text);

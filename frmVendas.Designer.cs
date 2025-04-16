@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVendas));
             this.btnBuscarVenda = new System.Windows.Forms.Button();
             this.btnExcluirVenda = new System.Windows.Forms.Button();
-            this.btnEditarVenda = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCadastrarVenda = new System.Windows.Forms.Button();
             this.txtBuscarVenda = new System.Windows.Forms.TextBox();
@@ -65,18 +64,6 @@
             this.btnExcluirVenda.Text = "Excluir";
             this.btnExcluirVenda.UseVisualStyleBackColor = true;
             this.btnExcluirVenda.Click += new System.EventHandler(this.btnExcluirVenda_Click);
-            // 
-            // btnEditarVenda
-            // 
-            this.btnEditarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarVenda.ForeColor = System.Drawing.Color.Blue;
-            this.btnEditarVenda.Location = new System.Drawing.Point(1024, 583);
-            this.btnEditarVenda.Name = "btnEditarVenda";
-            this.btnEditarVenda.Size = new System.Drawing.Size(75, 33);
-            this.btnEditarVenda.TabIndex = 28;
-            this.btnEditarVenda.Text = "Editar";
-            this.btnEditarVenda.UseVisualStyleBackColor = true;
-            this.btnEditarVenda.Click += new System.EventHandler(this.btnEditarVenda_Click);
             // 
             // label1
             // 
@@ -144,7 +131,6 @@
             this.Controls.Add(this.btnFecharVendas);
             this.Controls.Add(this.btnBuscarVenda);
             this.Controls.Add(this.btnExcluirVenda);
-            this.Controls.Add(this.btnEditarVenda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCadastrarVenda);
             this.Controls.Add(this.txtBuscarVenda);
@@ -161,7 +147,6 @@
         #endregion
         private System.Windows.Forms.Button btnBuscarVenda;
         private System.Windows.Forms.Button btnExcluirVenda;
-        private System.Windows.Forms.Button btnEditarVenda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCadastrarVenda;
         private System.Windows.Forms.TextBox txtBuscarVenda;

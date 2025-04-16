@@ -99,7 +99,7 @@ namespace sistemaGymLine
             }
             else
             {
-                MessageBox.Show("Selecione uma venda para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Selecione um aluno para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

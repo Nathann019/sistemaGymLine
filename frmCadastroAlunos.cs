@@ -90,7 +90,12 @@ namespace sistemaGymLine
                 using (SqlConnection cn = new SqlConnection(conexao.IniciarCon))
                 {
                     cn.Open();
-                    var sql = "INSERT INTO alunos (nomeAluno, enderecoAluno, telAluno, rgAluno, cpfAluno, idadeAluno, sexoAluno, datNascAluno, obsAluno) VALUES (@nome, @endereco, @telefone, @rg, @cpf, @idade, @sexo, @dataNasc, @obs)";
+                    var sql = "";
+                    if (this.idAluno == 0)
+                        sql = "INSERT INTO alunos (nomeAluno, enderecoAluno, telAluno, rgAluno, cpfAluno, idadeAluno, sexoAluno, datNascAluno, obsAluno) VALUES (@nome, @endereco, @telefone, @rg, @cpf, @idade, @sexo, @dataNasc, @obs)";
+                    
+                        else
+                        sql = "UPDATE alunos set nomeAluno = @nome , enderecoAluno = @endereco, telAluno = @telefone, rgAluno = @rg, cpfAluno = @cpf, idadeAluno = @idade, sexoAluno = @sexo, datNascAluno = @dataNasc, obsAluno = @obs where idAluno=" + this.idAluno;
                     using (SqlCommand cmd = new SqlCommand(sql, cn))
                     {
                         cmd.Parameters.AddWithValue("@nome", txtNomeAluno.Text);
